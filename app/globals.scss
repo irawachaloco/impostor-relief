@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/*********************************/
+/****** Animated Text Color ******/
+/*********************************/
+
+/* (#ff2d00, #ffd700, #007fff, #ff69b4, #9932cc */
+.animated-text:hover {
+  animation: flashing-color 200ms linear infinite;
+}
+@keyframes flashing-color {
+  0% {
+    color: rgba(255, 45, 0, 0.5);
+  }
+  25% {
+    color: rgba(255, 215, 0, 0.5);
+  }
+  50% {
+    color: rgba(0, 127, 255, 0.5);
+  }
+  75% {
+    color: rgba(255, 105, 180, 0.5);
+  }
+  100% {
+    color: rgba(153, 50, 204, 0.5);
+  }
+}
+
+/*********************************/
+/****** Animated background ******/
+/*********************************/
+
+/* source: https://codepen.io/Mamboleoo/pen/BxMQYQ */
+
+.background {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  /* // opacity: 0.5; */
+}
+
+$particleSize: 6vmin;
+$animationDuration: 260s;
+$amount: 40;
+.background span {
+  opacity: 0.5;
+  width: $particleSize;
+  height: $particleSize;
+  border-radius: $particleSize;
+  backface-visibility: hidden;
+  position: absolute;
+  animation-name: move;
+  animation-duration: $animationDuration;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  $colors: (#ff2d00, #ffd700, #007fff, #ff69b4, #9932cc);
+  @for $i from 1 through $amount {
+    &:nth-child(#{$i}) {
+      color: nth($colors, random(length($colors)));
+      top: random(100) * 1%;
+      left: random(100) * 1%;
+      animation-duration: (random($animationDuration * 10) / 10) * 1s + 10s;
+      animation-delay: random(($animationDuration + 10s) * 10) / 10 * -1s;
+      transform-origin: (random(50) - 25) * 1vw (random(50) - 25) * 1vh;
+      $blurRadius: (random() + 0.5) * $particleSize * 0.5;
+      $x: if(random() > 0.5, -1, 1);
+      box-shadow: ($particleSize * 2 * $x) 0 $blurRadius currentColor;
+    }
+  }
+}
+
+@keyframes move {
+  100% {
+    transform: translate3d(0, 0, 1px) rotate(360deg);
+  }
+}
