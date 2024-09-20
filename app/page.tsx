@@ -1,6 +1,8 @@
+import CodeBlock from "./components/CodeBlock";
+
 export default function Home() {
   return (
-    <div className="items-center justify-items-center min-h-screen_ p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="">
       <h1 className="font-bold text-xl pb-4">
         Why feel like a &quot;fraudulent professional&quot; when you can embrace
         your inner imposter? Let&apos;s get impostorie.
@@ -9,6 +11,13 @@ export default function Home() {
         This will be a scratch book for practicing while learning some real
         developer stuff.
       </h2>
+
+      <div>
+        <CodeBlock
+          language="javascript"
+          code="console.log('Hello, impostor!');"
+        />
+      </div>
     </div>
   );
 }
