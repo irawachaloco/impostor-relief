@@ -6,7 +6,7 @@ const ReactSection = () => {
     {
       id: 1,
       text: "Counter",
-      url: "/react/counter",
+      url: "react/counter",
     },
   ];
   return (
