@@ -79,7 +79,7 @@ const NavBar = () => {
   }, [isOpen]);
 
   return (
-    <nav className="px-4 flex items-end min-h-[4em] min-w-full relative">
+    <nav className="px-8 sm:px-20  flex items-end min-h-[4em] min-w-full relative">
       <AnimatedBackground fill_color={"bg-[#e8e8e8]/90"} />
       <div className="flex items-end justify-between w-full">
         <div className="flex">
