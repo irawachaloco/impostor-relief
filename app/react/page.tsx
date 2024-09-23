@@ -8,6 +8,11 @@ const ReactSection = () => {
       text: "Counter",
       url: "react/counter",
     },
+    {
+      id: 1,
+      text: "Fetch Rick and Morty character",
+      url: "react/rick_and_morty_fetch",
+    },
   ];
   return (
     <div>

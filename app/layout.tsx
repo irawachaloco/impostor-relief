@@ -30,7 +30,7 @@ export default function RootLayout({
       // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NavBar />
-        <div className="items-center justify-items-center min-h-screen_ p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+        <div className="items-center justify-items-center min-h-screen_ p-8_ pb-20 gap-16 sm:px-20 sm:pt-10 sm:pb-20 font-[family-name:var(--font-geist-sans)]">
           {children}
         </div>
       </body>
