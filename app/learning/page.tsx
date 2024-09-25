@@ -12,23 +12,23 @@ const Learning = () => {
     {
       id: 2,
       text: "Algorithms",
-      url: "./learning/react",
+      url: "./learning/algorithms",
     },
     {
       id: 3,
-      text: "DOM",
-      url: "./react",
-    },
-    {
-      id: 4,
       text: "Javascript",
-      url: "./learning/react",
+      url: "./learning/javascript",
     },
-    {
-      id: 5,
-      text: "TypeScript",
-      url: "./learning/react",
-    },
+    // {
+    //   id: 4,
+    //   text: "Javascript",
+    //   url: "./learning/react",
+    // },
+    // {
+    //   id: 5,
+    //   text: "TypeScript",
+    //   url: "./learning/react",
+    // },
   ];
 
   return (

@@ -72,7 +72,7 @@ const FetchRickAndMortyPage = () => {
             <p className="text-xl">{`${character.name}`}</p>
             <p className="">{`Status: ${character.status}`}</p>
             <p className="">{`Species: ${character.species}`}</p>
-            <p className="pb-4">{character.location.name}</p>
+            <p className="pb-4">{`Location: ${character.location.name}`}</p>
             {
               // eslint-disable-next-line @next/next/no-img-element
               <img src={character.image} alt={`${character.name} image`} />
