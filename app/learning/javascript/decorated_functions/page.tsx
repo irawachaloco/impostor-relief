@@ -3,7 +3,6 @@
 import CodeBlock from "@/app/components/CodeBlock";
 import Section from "@/app/components/Section";
 import React, { ChangeEvent, useEffect, useRef, useState } from "react";
-import { nnfxDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { callWithDouble } from "./decorated.ts";
 
 const HEADING_TEXT = `Decorated functions`;
