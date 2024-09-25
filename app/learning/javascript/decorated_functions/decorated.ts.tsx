@@ -1,11 +1,9 @@
-type FnType<T extends any[] = any[]> = (...args: T) => any;
-
-const callWithDouble = <T extends any[]>(fn: FnType<T>) => {
-  return (...a: T) => {
+const callWithDouble = (fn: (...args: number[]) => number) => {
+  return (...a: number[]) => {
     const doubles = a.map((n) => {
       return n * 2;
     });
-    return fn(...(doubles as T));
+    return fn(...doubles);
   };
 };
 

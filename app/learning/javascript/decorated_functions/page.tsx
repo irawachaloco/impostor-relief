@@ -39,7 +39,7 @@ const sum = (...args: number[]) =>
 
 const decoratedSum = callWithDouble(sum);
 
-const result = decoratedSum([1, 2, 3]);
+const result = decoratedSum(1, 2, 3);
 
 console.log(result);
 // Output will be 12 (since (1*2) + (2*2) + (3*2) = 12)
