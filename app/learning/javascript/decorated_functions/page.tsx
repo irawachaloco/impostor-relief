@@ -13,9 +13,9 @@ const CONTENT_TEXT_2 = `Supose you have the following function, which dooubles t
 
 const CONTENT_TEXT_3 = `Then, you can use it like this:`;
 
-const CONTENT_TEXT_4 = `And that's a so called decorated function.`;
+const CONTENT_TEXT_4 = `And that's it, you can wrap any function like this. `;
 
-const SECTION_CONTENT_1 = `Try your self:`;
+const SECTION_CONTENT_1 = `Try it yourself:`;
 
 const SECTION_CONTENT_2 = `Enter some number or comma-separated numbers list to see the result of our decorated sum function`;
 
@@ -33,7 +33,7 @@ const callWithDouble = (f) => {
 `.trim();
 
 const USING_CALLWITH_DOUBLE_CODE = `
-const sum = (...args: number[]) =>
+const sum = (...args) =>
  args.reduce((acc, curr) => acc + curr, 0);
 
 const decoratedSum = callWithDouble(sum);
