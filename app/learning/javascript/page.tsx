@@ -1,4 +1,3 @@
-import CodeBlock from "@/app/components/CodeBlock";
 import { LinksGrid } from "@/app/components/LinksGrid";
 import React from "react";
 
@@ -13,26 +12,6 @@ const JavascriptPage = () => {
       text: "Decorated functions",
       url: "./javascript/decorated_functions",
     },
-    // {
-    //   id: 2,
-    //   text: "Algorithms",
-    //   url: "./learning/algorithms",
-    // },
-    // {
-    //   id: 3,
-    //   text: "Javascript",
-    //   url: "./learning/javascript",
-    // },
-    // {
-    //   id: 4,
-    //   text: "Javascript",
-    //   url: "./learning/react",
-    // },
-    // {
-    //   id: 5,
-    //   text: "TypeScript",
-    //   url: "./learning/react",
-    // },
   ];
 
   return (
