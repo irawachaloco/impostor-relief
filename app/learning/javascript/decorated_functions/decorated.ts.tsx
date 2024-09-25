@@ -1,5 +1,8 @@
-const callWithDouble = (fn: (...args: number[]) => number) => {
-  return (...a: number[]) => {
+type FnType = (...args: number[]) => number;
+type ArrType = number[];
+
+const callWithDouble = (fn: FnType) => {
+  return (...a: ArrType) => {
     const doubles = a.map((n) => {
       return n * 2;
     });
