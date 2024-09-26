@@ -10,28 +10,28 @@ const AlgorithmsSection = () => {
     {
       id: 1,
       text: "Debounce and Throttle",
-      url: "/learning/algorithms/debounce",
+      url: "/learning/algorithms/debounce_and_throttle",
     },
-    {
-      id: 2,
-      text: "Some",
-      url: "./",
-    },
-    {
-      id: 3,
-      text: "Some",
-      url: "./",
-    },
-    {
-      id: 4,
-      text: "Some",
-      url: "./",
-    },
-    {
-      id: 5,
-      text: "Some",
-      url: "./",
-    },
+    // {
+    //   id: 2,
+    //   text: "Some",
+    //   url: "./",
+    // },
+    // {
+    //   id: 3,
+    //   text: "Some",
+    //   url: "./",
+    // },
+    // {
+    //   id: 4,
+    //   text: "Some",
+    //   url: "./",
+    // },
+    // {
+    //   id: 5,
+    //   text: "Some",
+    //   url: "./",
+    // },
   ];
 
   return (

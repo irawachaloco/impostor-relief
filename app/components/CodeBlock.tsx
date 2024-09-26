@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
 import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
-import { anOldHope } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { pojoaque } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 type CodeBlockProps = {
   language: string;
@@ -14,7 +14,7 @@ const CodeBlock: FC<CodeBlockProps> = ({ language, code }) => {
       <div className="shadow-md rounded rounded-lg my-4 overflow-hidden">
         <SyntaxHighlighter
           language={language}
-          style={anOldHope}
+          style={pojoaque}
           wrapLines={true}
           wrapLongLines
           showLineNumbers

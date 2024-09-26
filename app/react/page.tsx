@@ -13,6 +13,11 @@ const ReactSection = () => {
       text: "Fetch Rick and Morty character",
       url: "react/rick_and_morty_fetch",
     },
+    {
+      id: 1,
+      text: "Timer",
+      url: "react/timer",
+    },
   ];
   return (
     <div>

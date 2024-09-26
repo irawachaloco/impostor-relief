@@ -99,7 +99,7 @@ const NavBar = () => {
           } absolute top-[100%] md:top-auto md:relative md:flex flex-col md:flex-row right-0 items-center md:items-auto w-full md:w-auto bg-[#e8e8e8] md:bg-[#e8e8e8]/0 md:space-x-4`}
         >
           <NavItem link="/learning" text="Learning" />
-          <NavItem link="/just_css" text="CSS Gallery" />
+          {/* <NavItem link="/just_css" text="CSS Gallery" /> */}
         </div>
       </div>
     </nav>

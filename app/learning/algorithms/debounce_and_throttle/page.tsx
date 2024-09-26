@@ -19,6 +19,20 @@ const callWithDouble = (f) => {
 };
 `.trim();
 
+const CALL_WITH_DEBOUNCE_CODE = `
+const simpleDebounceFunction = (func, time) => {
+  let timeout;
+
+  return (...args) => {
+    clearTimeout(timeout);
+
+    timeout = setTimeout(() => {
+      func(...args);
+    }, time);
+  };
+};
+`.trim();
+
 const USING_CALLWITH_DOUBLE_CODE = `
 const sum = (x, y, z) => x + y + z;
 const callWithDoubledSum = callWithDouble(sum);
@@ -39,7 +53,7 @@ const DebouncePage = () => {
         <div className="max-w-2xl">
           <p>{CONTENT_TEXT_1}</p>
           <p>{CONTENT_TEXT_2}</p>
-          <CodeBlock language="javascript" code={CALL_WITH_DOUBLE_CODE} />
+          <CodeBlock language="javascript" code={CALL_WITH_DEBOUNCE_CODE} />
         </div>
         <div className="max-w-2xl">
           <p>{CONTENT_TEXT_3}</p>
