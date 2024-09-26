@@ -7,18 +7,6 @@ const CONTENT_TEXT_2 = `Supose you have the following function, which dooubles t
 
 const CONTENT_TEXT_3 = `Then, you can use it like this:`;
 
-const CALL_WITH_DOUBLE_CODE = `
-const callWithDouble = (f) => {
-  return (...a) => {
-    // rest parameters -> averiguar, similar a arguments
-    const doubles = a.map((n) => {
-      return n * 2;
-    });
-    return f(...doubles);
-  };
-};
-`.trim();
-
 const CALL_WITH_DEBOUNCE_CODE = `
 const simpleDebounceFunction = (func, time) => {
   let timeout;
