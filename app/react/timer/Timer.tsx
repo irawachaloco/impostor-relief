@@ -7,11 +7,14 @@ const Timer = () => {
 
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     if (inputValue !== "" && !isNaN(Number(inputValue))) {
       startCountdown(Number(inputValue));
     }
+
     setInputValue("");
   };
+
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };

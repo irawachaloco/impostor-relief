@@ -17,8 +17,8 @@ const CodeBlock: FC<CodeBlockProps> = ({ language, code }) => {
           style={pojoaque}
           wrapLines={true}
           wrapLongLines
-          showLineNumbers
-          showInlineLineNumbers
+          // showLineNumbers
+          // showInlineLineNumbers
         >
           {code}
         </SyntaxHighlighter>
