@@ -98,7 +98,6 @@ const TimerPage = () => {
         <CodeBlock language="tsx" code={COUNTDOWN_CODE} />
         <p>{TEXT_2}</p>
         <CodeBlock language="tsx" code={TIMER_CODE} />
-        <p>And it will produce something as following:</p>
       </div>
     </>
   );
