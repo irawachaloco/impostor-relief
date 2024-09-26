@@ -24,7 +24,6 @@ const Timer = () => {
             className="border-[1px] border-grey-400 rounded p-2 mr-2"
             type="number"
             onChange={handleOnChange}
-            autoFocus
             value={inputValue}
           />
 
