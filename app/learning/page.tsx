@@ -34,10 +34,10 @@ const Learning = () => {
   return (
     <div>
       <h2 className="text-[#686868] text-2xl font-bold mb-4">
-        Real Dev Stuff 🎉 🪅
+        Real Dev Stuff 🎉
       </h2>
       <h2 className="text-[#686868] text-lg font-semibold mb-6">
-        This is a list of commonly used knowledge in the developer world.
+        This is a list of commonly used knowledge in the developers world.
       </h2>
       <LinksGrid links={links} />
     </div>
