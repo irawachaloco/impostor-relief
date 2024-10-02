@@ -90,7 +90,7 @@ const DecoratedFunctionPage = () => {
   }, [numbers]);
 
   useEffect(() => {
-    inputRef.current?.focus();
+    // inputRef.current?.focus();
   }, []);
 
   return (

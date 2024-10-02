@@ -9,10 +9,6 @@ export default function Home() {
             truly good at?`}
             &rdquo;
           </p>
-          {/* <p className="text-xl leading-relaxed font-serif text-gray-900">
-            &ldquo;Why feel like a fraudulent professional when you can embrace
-            your inner imposter?&rdquo;
-          </p> */}
           <footer className="mt-4 text-right text-sm font-semibold text-gray-700">
             &mdash; The Impostør
           </footer>
@@ -22,7 +18,7 @@ export default function Home() {
             <p>
               {`Perhaps many of you, like me, may have fallen victim to the
               infamous 'impostor syndrome,' whose cruelty seems to be on a
-              contiuous growing.`}
+              contiuously growing.`}
             </p>
             <br />
             <p>
