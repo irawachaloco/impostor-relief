@@ -3,51 +3,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import AnimatedBackground from "./AnimatedBackground";
-
-type BurgerButtonProps = {
-  handleMenuToggle: () => void;
-  isOpen: boolean;
-};
-
-const BurgerButton = ({ handleMenuToggle, isOpen }: BurgerButtonProps) => {
-  return (
-    <button
-      onClick={handleMenuToggle}
-      className="text-white hover:text-gray-300 focus:outline-none"
-    >
-      {isOpen ? (
-        <svg
-          className="h-6 w-6"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          stroke="currentColor"
-          fill="none"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M18 6L6 18M6 6l12 12"
-          />
-        </svg>
-      ) : (
-        <svg
-          className="h-6 w-6 fill-current"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"
-          />
-        </svg>
-      )}
-    </button>
-  );
-};
+import BurgerButton from "./BurgerButton";
 
 type NavItemProps = {
   link: string;
@@ -55,12 +11,34 @@ type NavItemProps = {
 };
 
 const NavItem = ({ link, text }: NavItemProps) => {
+  const [color, setColor] = useState("white");
+  //#ff2d00, #ffd700, #007fff, #ff69b4, #9932cc
+  const colors = ["#ff2d00", "#ffd700", "#007fff", "#ff69b4", "#9932cc"];
+
+  const handleMouseEnter = () => {
+    const newIndex = Math.floor(Math.random() * colors.length);
+    setColor(colors[newIndex]);
+  };
+
+  const handleMouseLeave = () => {
+    setColor("white");
+  };
+
+  useEffect(() => {
+    console.log(color);
+  }, [color]);
+
   return (
     <Link
       href={link}
-      className="flex justify-center w-full md:w-auto border-b md:border-b-0 border-[#f2f2f2] py-2 md:py-0"
+      className={`flex justify-center w-full md:w-auto border-b md:border-b-0 border-[#f2f2f2] py-2 md:py-0`}
     >
-      <button className={`text-white hover:text-gray-300 font-bold`}>
+      <button
+        className={`font-bold text-lg hover:opacity-50`}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        style={{ color: color }}
+      >
         {text}
       </button>
     </Link>

@@ -9,8 +9,9 @@ const AlgorithmsSection = () => {
   const links = [
     {
       id: 1,
-      text: "Debounce and Throttle",
-      url: "/learning/algorithms/debounce_and_throttle",
+      text: "Insertion sort",
+      url: "/learning/algorithms/insertion_sort",
+      // url: "/learning/algorithms/debounce_and_throttle",
     },
     // {
     //   id: 2,

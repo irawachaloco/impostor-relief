@@ -7,9 +7,9 @@ import { callWithDouble } from "./decorated.ts";
 
 const HEADING_TEXT = `Decorated functions`;
 
-const CONTENT_TEXT_1 = `Ok, the following pattern is known as a decorated function. A decorated function wraps an existing function, adds additional functionality to it, and then returns a new, enhanced function. This allows for the augmentation of behavior without directly modifying the original function.`;
+const CONTENT_TEXT_1 = `The pattern demonstrated below is known as a decorator or decorated function. A decorator wraps an existing function, adding extra functionality while preserving the original logic. It then returns a new, enhanced version of the function. This approach allows you to augment behavior without altering the underlying function directly, making it a flexible and reusable design pattern.`;
 
-const CONTENT_TEXT_2 = `Supose you have the following function, which dooubles the value of each element in the arguments.`;
+const CONTENT_TEXT_2 = `For example, consider a function that doubles the value of each element passed to it as an argument.`;
 
 const CONTENT_TEXT_3 = `Then, you can use it like this:`;
 
@@ -36,7 +36,7 @@ const USING_CALLWITH_DOUBLE_CODE = `
 const sum = (...args) =>
  args.reduce((acc, curr) => acc + curr, 0);
 
-const decoratedSum = callWithDouble(sum);
+const decoratedSum = callWithDouble(sum); // Decorates the function
 
 const result = decoratedSum(1, 2, 3);
 
@@ -48,6 +48,10 @@ const parseNumbers = (input: string): number[] | null => {
   const values = input.split(",").map((value) => value.trim());
   const numbers = values.map((val) => Number(val));
 
+  // Fallar con nulo no es una buena idea
+  // Mejor filtrar por ejemplo lo que no sea NaN
+  // Qué pasa si el arreglo está vacío
+  // Probar validarlo con Regex (desde el string - input) **
   if (numbers.some(isNaN)) {
     return null;
   }

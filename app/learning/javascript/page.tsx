@@ -12,6 +12,11 @@ const JavascriptPage = () => {
       text: "Decorated functions",
       url: "./javascript/decorated_functions",
     },
+    {
+      id: 2,
+      text: "Debounce and Throtle",
+      url: "./javascript/debounce_and_throttle",
+    },
   ];
 
   return (

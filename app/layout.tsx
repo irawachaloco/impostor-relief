@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 // import localFont from "next/font/local";
 import "./globals.scss";
 import NavBar from "./components/NavBar";
+import BreadCrumb from "./components/BreadCrumb";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -30,7 +31,9 @@ export default function RootLayout({
       // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NavBar />
-        <div className="items-center justify-items-center min-h-screen_ p-8_ pb-20 gap-16 sm:px-20 sm:pt-10 sm:pb-20 font-[family-name:var(--font-geist-sans)]">
+        <div className="items-center justify-items-center min-h-screen_ p-8_ pb-20 gap-16 sm:px-20 sm:pt-4 sm:pb-20 font-[family-name:var(--font-geist-sans)]">
+          <BreadCrumb />
+
           {children}
         </div>
       </body>

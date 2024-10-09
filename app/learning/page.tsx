@@ -6,8 +6,8 @@ const Learning = () => {
   const links = [
     {
       id: 1,
-      text: "React",
-      url: "/react/",
+      text: "Javascript",
+      url: "./learning/javascript",
     },
     {
       id: 2,
@@ -16,8 +16,8 @@ const Learning = () => {
     },
     {
       id: 3,
-      text: "Javascript",
-      url: "./learning/javascript",
+      text: "React",
+      url: "/react/",
     },
     // {
     //   id: 4,
