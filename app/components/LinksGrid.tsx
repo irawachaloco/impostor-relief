@@ -17,9 +17,11 @@ export const LinksGrid: React.FC<LinksGridProps> = ({ links }) => {
         <li key={link.id}>
           <Link
             href={link.url}
-            className="bg-[#efefef] hover:scale-[101%] hover:bg-[#d4e6f1] hover:shadow border rounded border-[#718394]/20 hover:border-[#718394]/40 block transition _max-w-xs"
+            className="bg-[#efefef] hover:scale-[101%] hover:bg-[#e7e7e7] hover:shadow border rounded-xl border-[#718394]/20 hover:border-[#718394]/40 block transition flex justify-center text-[rgba(255,105,180,0.75)]"
           >
-            <p className="p-2 text-[#94a3b8] hover:text-[#475569]">
+            <p
+              className={`depth before:content py-8 depth before:content text-[1.25em] md:text-[2em]`}
+            >
               {link.text}
             </p>
           </Link>
