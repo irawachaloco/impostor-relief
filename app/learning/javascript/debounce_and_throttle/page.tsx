@@ -3,7 +3,7 @@
 import CodeBlock from "@/app/components/CodeBlock";
 import Demo from "./Demo";
 
-const DESCRIPTION_TEXT = `Debounce and Throttle, this lovely copuple of algorithms...`;
+const DESCRIPTION_TEXT = `Debounce and Throttle, this lovely couple of algorithms...`;
 
 const CONTENT_TEXT_1 = `Debounce and throttle are techniques used in JavaScript to control how often a function is executed. They are particularly useful when dealing with events that are fired frequently, such as scrolling, resizing, typing, or mouse movements. Both techniques improve performance and reduce the number of times the function is executed, but they work in different ways.`;
 
