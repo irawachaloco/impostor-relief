@@ -14,7 +14,7 @@ const JavascriptPage = () => {
     },
     {
       id: 2,
-      text: "Debounce and Throtle",
+      text: "Debounce and Throttle",
       url: "./javascript/debounce_and_throttle",
     },
   ];
