@@ -1,7 +1,6 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
-// First working solution
-function UseThrottle<F extends (...args: unknown[]) => void>(
+function useThrottle<F extends (...args: unknown[]) => void>(
   f: F,
   time: number
 ) {
@@ -22,7 +21,16 @@ function UseThrottle<F extends (...args: unknown[]) => void>(
       }, time - (Date.now() - lastRan.current));
     }
   };
+
+  useEffect(() => {
+    return () => {
+      if (inThrottle.current) {
+        clearTimeout(inThrottle.current);
+      }
+    };
+  }, []);
+
   return throttle;
 }
 
-export default UseThrottle;
+export default useThrottle;

@@ -1,5 +1,6 @@
 import CodeBlock from "@/app/components/CodeBlock";
 import React from "react";
+import Demo from "./Demo";
 
 const CODE = `
 const InsertionSort = (arr: Number[]) => {
@@ -25,6 +26,7 @@ const InsertionSort = () => {
       <section>
         <CodeBlock code={CODE} language="javascript" />
       </section>
+      <Demo />
     </div>
   );
 };

@@ -60,9 +60,9 @@ const NavBar = () => {
     <nav className="px-8 sm:px-20  flex items-end min-h-[4em] min-w-full relative">
       <AnimatedBackground fill_color={"bg-[#e8e8e8]/90"} />
       <div className="flex items-end justify-between w-full">
-        <div className="flex">
+        <div className="flex h-[1.75em] md:h-[2.25em] flex-auto overflow-hidden">
           <Link href="/" className="">
-            <button className="text-gray-500/50 hover:text-zinc-50_ animated-text font-bold text-xl">
+            <button className="text-gray-500/50 hover:text-zinc-50_ animated-text font-bold text-[2em] md:text-[2.5em] max-width hover:scale-[101%]">
               <p className="min-w-[10vw]_">Impostor Relief</p>
             </button>
           </Link>

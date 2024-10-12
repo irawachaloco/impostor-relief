@@ -1,19 +1,15 @@
 "use client";
 
 import Section from "@/app/components/Section";
-import { useCallback, useEffect, useState } from "react";
-// import debounce from "./debounce_decorator";
+import { useCallback, useState } from "react";
 import useDebounce from "./useDebounce";
 
 const Demo = () => {
   const [inputValue, setInputValue] = useState<string | undefined>("");
-  const [debouncedValue, setDebouncedValue] = useState<string | undefined>(
-    undefined
-  );
-  const [result, setResult] = useState<string | undefined>("");
+  const [result, setResult] = useState<string | null>(null);
 
   const saveInput = useCallback((value: string): void => {
-    setDebouncedValue(value);
+    setResult(value);
   }, []);
 
   const processChange = useDebounce(
@@ -26,10 +22,6 @@ const Demo = () => {
     setInputValue(value);
     processChange(value);
   };
-
-  useEffect(() => {
-    setResult(debouncedValue);
-  }, [debouncedValue]);
 
   return (
     <Section>
@@ -50,7 +42,7 @@ const Demo = () => {
             type="text"
             value={inputValue}
             onChange={handleOnChange}
-            placeholder="Enter some text"
+            placeholder="Start typing some text"
           />
         </form>
         <div className="mt-4 p-4 bg-gray-100 border border-gray-300 rounded-md shadow-sm">
@@ -60,7 +52,9 @@ const Demo = () => {
               result !== null ? "text-green-600" : "text-gray-400"
             }`}
           >
-            {result !== null ? result : "Enter some numbers. Or don’t."}
+            {result !== null
+              ? result
+              : "The result will appear once you stop typing"}
           </p>
         </div>
       </div>

@@ -2,10 +2,12 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center">
       <div className="max-w-xl_ flex flex-col">
+        <h1 className="text-[#686868] text-2xl font-bold mb-8">{`Welcome to Impostor Relief!`}</h1>
+
         <blockquote className="max-w-md flex flex-col self-end relative px-8 py-4 md:px-12 md:py-6 bg-gray-50 border-l-4 border-gray-300 italic text-gray-800">
           <p className="text-xl leading-relaxed font-serif text-gray-900">
             &ldquo;
-            {`Why feel like an fake when faking it is the only thing you're
+            {`Why feel like a fake when faking it is the only thing you're
             truly good at?`}
             &rdquo;
           </p>

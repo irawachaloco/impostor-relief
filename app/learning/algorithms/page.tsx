@@ -11,28 +11,17 @@ const AlgorithmsSection = () => {
       id: 1,
       text: "Insertion sort",
       url: "/learning/algorithms/insertion_sort",
-      // url: "/learning/algorithms/debounce_and_throttle",
     },
-    // {
-    //   id: 2,
-    //   text: "Some",
-    //   url: "./",
-    // },
-    // {
-    //   id: 3,
-    //   text: "Some",
-    //   url: "./",
-    // },
-    // {
-    //   id: 4,
-    //   text: "Some",
-    //   url: "./",
-    // },
-    // {
-    //   id: 5,
-    //   text: "Some",
-    //   url: "./",
-    // },
+    {
+      id: 1,
+      text: "Quicksort",
+      url: "/learning/algorithms/quick_sort",
+    },
+    {
+      id: 1,
+      text: "Merge sort",
+      url: "/learning/algorithms/merge_sort",
+    },
   ];
 
   return (

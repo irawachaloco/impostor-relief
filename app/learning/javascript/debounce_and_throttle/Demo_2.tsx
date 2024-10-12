@@ -37,7 +37,7 @@ const Demo_2 = () => {
           <span>times</span>
         </p>
         <div className="mt-4 mb-2 p-4 bg-gray-100 border border-gray-300 rounded-md shadow-sm">
-          <p className="text-gray-600 font-md">Result: </p>
+          <p className="text-gray-600 font-md">Output: </p>
           <p
             className={`text-xl ${
               result !== null ? "text-green-600" : "text-gray-400"
