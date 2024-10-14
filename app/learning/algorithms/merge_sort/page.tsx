@@ -1,6 +1,6 @@
 import React from "react";
-import useMergeSort from "./useMergeSort";
 import CodeBlock from "@/app/components/CodeBlock";
+import mergeSort from "./mergeSort";
 
 const CODE = `function useMergeSort(arr: number[]): number[] {
   if (arr.length <= 1) {
@@ -33,7 +33,7 @@ function merge(left: number[], right: number[]): number[] {
 }`.trim();
 
 const MergeSortChapter = () => {
-  const result = useMergeSort([7, 4, 3, 1, 0, 6, 8, 13]);
+  const result = mergeSort([7, 4, 3, 1, 0, 6, 8, 13]);
 
   return (
     <div>

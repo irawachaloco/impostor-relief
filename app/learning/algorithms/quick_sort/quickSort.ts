@@ -1,4 +1,4 @@
-const useQuickSort = (arr: number[]): number[] => {
+const quickSort = (arr: number[]): number[] => {
   if (arr.length <= 1) {
     return arr;
   }
@@ -15,7 +15,7 @@ const useQuickSort = (arr: number[]): number[] => {
     }
   }
 
-  return [...useQuickSort(left), pivot, ...useQuickSort(right)];
+  return [...quickSort(left), pivot, ...quickSort(right)];
 };
 
-export default useQuickSort;
+export default quickSort;

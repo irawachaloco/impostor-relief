@@ -32,20 +32,20 @@
 //   return mergeSort(arr);
 // };
 
-function useMergeSort(arr: number[]): number[] {
+function mergeSort(arr: number[]): number[] {
   if (arr.length <= 1) {
     return arr;
   }
 
   const mid = Math.floor(arr.length / 2);
-  const left = useMergeSort(arr.slice(0, mid));
-  const right = useMergeSort(arr.slice(mid));
+  const left = mergeSort(arr.slice(0, mid));
+  const right = mergeSort(arr.slice(mid));
 
   return merge(left, right);
 }
 
 function merge(left: number[], right: number[]): number[] {
-  let result: number[] = [];
+  const result: number[] = [];
   let i = 0,
     j = 0;
 
@@ -62,4 +62,4 @@ function merge(left: number[], right: number[]): number[] {
   return result.concat(left.slice(i)).concat(right.slice(j));
 }
 
-export default useMergeSort;
+export default mergeSort;

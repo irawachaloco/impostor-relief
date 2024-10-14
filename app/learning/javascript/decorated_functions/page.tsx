@@ -2,7 +2,7 @@
 
 import CodeBlock from "@/app/components/CodeBlock";
 import React from "react";
-import DecoratedFunctionDemo from "./demo";
+import DecoratedFunctionDemo from "./Demo";
 
 const HEADING_TEXT = `Decorated functions`;
 

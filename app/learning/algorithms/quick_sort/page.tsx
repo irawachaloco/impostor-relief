@@ -1,6 +1,6 @@
 import CodeBlock from "@/app/components/CodeBlock";
 import React from "react";
-import useQuickSort from "./useQuickSort";
+import quickSort from "./quickSort";
 
 const QUICK_SORT_CODE = `
 function quickSort(arr: number[]): number[] {
@@ -25,7 +25,7 @@ function quickSort(arr: number[]): number[] {
 `.trim();
 
 const QuickSortChapter = () => {
-  const sorted = useQuickSort([1, 5, 3, 89, 2, 0, 4, 10]);
+  const sorted = quickSort([1, 5, 3, 89, 2, 0, 4, 10]);
   return (
     <div>
       <h1 className="text-[#686868] text-lg font-semibold mb-6">
