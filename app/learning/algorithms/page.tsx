@@ -22,6 +22,16 @@ const AlgorithmsSection = () => {
       text: "Merge sort",
       url: "/learning/algorithms/merge_sort",
     },
+    {
+      id: 1,
+      text: "Bubble sort",
+      url: "/learning/algorithms/bubble_sort",
+    },
+    {
+      id: 1,
+      text: "Selection sort",
+      url: "/learning/algorithms/selection_sort",
+    },
   ];
 
   return (

@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import insertionSort from "./insertionSort";
 import DemoSection from "@/app/components/DemoSection";
 import InputForm from "@/app/components/InputForm";
 import stringToNumbersArray from "@/app/utils/stringToNumberArray";
 import Outcome from "@/app/components/Outcome";
+import bubbleSort from "./bubbleSort";
 
 const Demo = () => {
   // preferiblemente no usar null para inicializar el estado
@@ -23,7 +23,7 @@ const Demo = () => {
         setResult([]);
       } else {
         // OJO aquí con la la condicional de arreglo vacío
-        const orderedNumbers = insertionSort(numbers || []);
+        const orderedNumbers = bubbleSort(numbers || []);
         setInputArray(numbers);
         setResult(orderedNumbers);
         setError(null);

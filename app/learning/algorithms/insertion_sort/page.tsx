@@ -36,10 +36,15 @@ const InsertionSort = (arr) => {
 
 const InsertionSort = () => {
   return (
-    <div className="max-w-2xl">
-      Insertion Sort
+    <div>
+      <h1 className="text-[#686868] text-lg font-semibold mb-6">
+        {`Insertion Sort`}
+      </h1>
       <section>
-        <CodeBlock code={CODE} language="javascript" />
+        <div className="max-w-2xl">
+          <p>{`Insertion Sort is a simple algorithm that builds the final sorted array one item at a time. It is much less efficient on large lists compared to more advanced algorithms, but it performs well on small datasets and partially sorted arrays.`}</p>
+          <CodeBlock code={CODE} language="javascript" />
+        </div>
       </section>
       <Demo />
     </div>
