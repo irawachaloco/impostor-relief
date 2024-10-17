@@ -1,6 +1,5 @@
 import React from "react";
 import CodeBlock from "@/app/components/CodeBlock";
-import mergeSort from "./mergeSort";
 import Demo from "./Demo";
 
 const CODE = `function useMergeSort(arr: number[]): number[] {

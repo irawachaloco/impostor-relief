@@ -1,6 +1,5 @@
 "use client";
 
-import Section from "@/app/components/Section";
 import { useCallback, useState } from "react";
 import useDebounce from "./useDebounce";
 import InputForm from "@/app/components/InputForm";

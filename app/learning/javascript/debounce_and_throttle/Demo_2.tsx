@@ -1,6 +1,5 @@
 "use client";
 
-import Section from "@/app/components/Section";
 import { useState } from "react";
 import UseThrottle from "./useThrottle";
 import DemoSection from "@/app/components/DemoSection";

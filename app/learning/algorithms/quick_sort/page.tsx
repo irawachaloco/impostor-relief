@@ -1,6 +1,5 @@
 import CodeBlock from "@/app/components/CodeBlock";
 import React from "react";
-import quickSort from "./quickSort";
 import Demo from "./Demo";
 
 const QUICK_SORT_CODE = `
@@ -26,7 +25,6 @@ function quickSort(arr: number[]): number[] {
 `.trim();
 
 const QuickSortChapter = () => {
-  const sorted = quickSort([1, 5, 3, 89, 2, 0, 4, 10]);
   return (
     <div className="max-w-2xl">
       <section>
