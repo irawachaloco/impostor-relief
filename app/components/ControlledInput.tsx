@@ -16,7 +16,7 @@ const ControlledInput: React.FC<ControlledInputProps> = ({
   handleOnChange,
   inputRef,
   type,
-  placeholder,
+  placeholder = "Write something in here",
   value,
 }) => {
   return (

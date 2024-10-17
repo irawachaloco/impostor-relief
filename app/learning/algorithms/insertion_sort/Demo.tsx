@@ -11,8 +11,6 @@ const Demo = () => {
 
   const resultArray = insertionSort([3, 2, 1, 7, 26, 0, 33, 10, 9, 6, 4]);
 
-  //   setInputArray([3, 2, 1, 7, 26, 0, 33, 10, 9, 6, 4]);
-
   useEffect(() => {
     if (result !== null) {
       setInputArray([3, 2, 1, 7, 26, 0, 33, 10, 9, 6, 4]);
@@ -21,7 +19,8 @@ const Demo = () => {
 
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setResult(resultArray);
+
+    // setResult(resultArray);
   };
 
   return (

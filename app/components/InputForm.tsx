@@ -3,11 +3,12 @@ import ControlledInput from "./ControlledInput";
 import ErrorMessage from "./ErrorMessage";
 
 type InputFormProps = {
-  handleOnSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  handleOnSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
   handleOnChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   errorMessage?: string;
   value: string;
-  label: string;
+  placeholder?: string;
+  label?: string;
 };
 
 const InputForm = ({
@@ -15,12 +16,22 @@ const InputForm = ({
   handleOnChange,
   errorMessage,
   value,
+  placeholder,
   label,
 }: InputFormProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    if (handleOnSubmit) {
+      handleOnSubmit(e);
+    } else {
+      e.preventDefault();
+      console.log("No handleOnSubmit provided, default prevented.");
+    }
+  };
+
   return (
-    <form onSubmit={handleOnSubmit}>
+    <form onSubmit={onSubmit}>
       <label className="block mb-2 text-gray-700" htmlFor="input-field">
         {label}
       </label>
@@ -30,7 +41,7 @@ const InputForm = ({
         handleOnChange={handleOnChange}
         inputRef={inputRef}
         type="text"
-        placeholder="E.g., 1, 2, 3"
+        placeholder={placeholder}
         value={value}
       />
 

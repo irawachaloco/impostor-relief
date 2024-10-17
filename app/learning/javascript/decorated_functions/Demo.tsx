@@ -61,6 +61,7 @@ const DecoratedFunctionDemo = () => {
         errorMessage={error || ""}
         value={inputValue}
         label={INPUT_LABEL_TEXT}
+        placeholder="E.g., 1, 2, 3"
       />
       <Outcome result={result} inputValue={inputValue} />
     </DemoSection>
