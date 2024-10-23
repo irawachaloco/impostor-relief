@@ -57,7 +57,7 @@ const NavBar = () => {
   }, [isOpen]);
 
   return (
-    <nav className="px-8 sm:px-20  flex items-end min-h-[4em] min-w-full relative">
+    <nav className="px-8 sm:px-20  flex items-end min-h-[4em] min-w-full _w-full relative">
       <AnimatedBackground fill_color={"bg-[#e8e8e8]/90"} />
       <div className="flex items-end justify-between w-full">
         <div className="flex h-[1.75em] md:h-[2.25em] flex-auto overflow-hidden">
@@ -77,7 +77,7 @@ const NavBar = () => {
           } absolute top-[100%] md:top-auto md:relative md:flex flex-col md:flex-row right-0 items-center md:items-auto w-full md:w-auto bg-[#e8e8e8] md:bg-[#e8e8e8]/0 md:space-x-4`}
         >
           <NavItem link="/learning" text="Learning" />
-          {/* <NavItem link="/just_css" text="CSS Gallery" /> */}
+          <NavItem link="/gallery" text="Gallery" />
         </div>
       </div>
     </nav>

@@ -32,6 +32,11 @@ const AlgorithmsSection = () => {
       text: "Selection sort",
       url: "/learning/algorithms/selection_sort",
     },
+    {
+      id: 1,
+      text: "Heap sort",
+      url: "/learning/algorithms/heap_sort",
+    },
   ];
 
   return (
