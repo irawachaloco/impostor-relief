@@ -17,7 +17,7 @@ const Learning = () => {
     {
       id: 3,
       text: "React",
-      url: "/react/",
+      url: "./learning/react",
     },
     // {
     //   id: 4,

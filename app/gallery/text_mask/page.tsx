@@ -3,7 +3,7 @@ import CodeBlock from "@/app/components/CodeBlock";
 import SVGTextMask from "@/app/components/SVGTextMask";
 import React from "react";
 
-const DESCRIPTION_TEXT = `Masking text`;
+const DESCRIPTION_TEXT = `Text masking`;
 const CONTENT_TEXT_1 = `Speaking of impostors, if you want your text to wear a proper disguise, SVG is your go-to.`;
 const CONTENT_TEXT_2 = `I have found that the most reliable way to mask text is through an SVG file because it is far more powerful and customizable than using the conventional CSS background-clip, which needs to have an embedded background to work. With the SVG approach, you can place your mask on top of any layer and see through it. Also, it requires just a few lines of code, like this:`;
 
