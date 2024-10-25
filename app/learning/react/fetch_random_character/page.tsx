@@ -1,33 +1,14 @@
 "use client";
 
-import Section from "@/app/components/Section";
-import { useEffect, useState } from "react";
+import CodeBlock from "@/app/components/CodeBlock";
+import Demo from "./Demo";
 
-type Character = {
-  id: number;
-  name: string;
-  image: string;
-  status: string;
-  location: { name: string };
-  species: string;
-};
-
-const getIdNumber = () => {
-  return Math.floor(Math.random() * 826) + 1;
-};
-
-const CharacterRandomFetch = () => {
-  const initialNUmber = getIdNumber();
-  const [character, setCharacter] = useState<Character | null>(null);
-  const [selectedId, setSelectedId] = useState(initialNUmber);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
-
-  const fetchCharachter = async (id: number) => {
+const FETCH_CODE = `
+ const fetchCharachter = async (id: number) => {
     try {
       setLoading(true);
       const response = await fetch(
-        `https://rickandmortyapi.com/api/character/${id}`
+        "https://rickandmortyapi.com/api/character/" + id
       );
       if (!response.ok) {
         throw new Error("Failed fetching request");
@@ -42,45 +23,39 @@ const CharacterRandomFetch = () => {
     }
   };
 
-  const handlePickAnother = () => {
+  const handlePickAnother = useThrottle(() => {
     const id = getIdNumber();
     setSelectedId(id);
-  };
+  }, 10000);
 
   useEffect(() => {
     fetchCharachter(selectedId);
   }, [selectedId]);
+`.trim();
 
+const CharacterRandomFetch = () => {
   return (
-    <Section>
-      <h2>Pick a randmon character from the Rick and Morty API</h2>
-      <button
-        aria-label="Pick another random character"
-        className="rounded bg-blue-500 text-white p-2 mb-4"
-        onClick={handlePickAnother}
-      >
-        Pick another
-      </button>
+    <div>
+      <section className="pb-6">
+        <h2 className="text-[#686868] text-xl font-semibold mb-4">{`Building a Debounced Character Fetcher`}</h2>
 
-      {loading ? (
-        <p>Loading...</p>
-      ) : error ? (
-        <p>{`Something went wrong. ${error}`}</p>
-      ) : (
-        character && (
-          <>
-            <p className="text-xl">{`${character.name}`}</p>
-            <p className="">{`Status: ${character.status}`}</p>
-            <p className="">{`Species: ${character.species}`}</p>
-            <p className="pb-4">{`Location: ${character.location.name}`}</p>
-            {
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={character.image} alt={`${character.name} image`} />
-            }
-          </>
-        )
-      )}
-    </Section>
+        <div className="max-w-2xl">
+          <div className="pb-4">
+            <p>{`Dynamic character fetcher using the Rick and Morty API`}</p>
+          </div>
+          {/* <div className="pb-4">
+            <p>{`ble`}</p>
+          </div> */}
+        </div>
+      </section>
+
+      <Demo />
+
+      <div className="max-w-prose pb-6">
+        <p>{`The code:`}</p>
+        <CodeBlock language="javascript" code={FETCH_CODE} />
+      </div>
+    </div>
   );
 };
 

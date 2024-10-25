@@ -15,9 +15,17 @@ const Demo_2 = () => {
 
   const handleOnClick = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setCount((prev) => prev + 1);
-    processChange(count);
+    setCount((prev) => {
+      processChange(prev + 1);
+      return prev + 1;
+    });
+    // setCount((prev) => prev + 1);
+    // processChange(count);
   };
+
+  // useEffect(() => {
+  //   processChange(count);
+  // }, [count]);
 
   return (
     <DemoSection>

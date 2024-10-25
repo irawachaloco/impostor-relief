@@ -51,7 +51,7 @@ const TextMaskChapter = () => {
       <h1 className="text-[#686868] text-lg font-semibold mb-6">
         {DESCRIPTION_TEXT}
       </h1>
-      <section className="rounded border border-gray-200 mb-6">
+      <section className="rounded border border-gray-200 mb-6 max-w-6xl">
         <div className="relative">
           <SVGTextMask
             // text1="404"
