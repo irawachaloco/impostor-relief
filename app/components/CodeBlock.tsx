@@ -1,7 +1,18 @@
 import React, { FC } from "react";
+import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/prism";
+// import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/prism-async-light";
+// import { funky } from "react-syntax-highlighter/dist/cjs/styles/prism";
+// import {
+//   funky,
+//   vscDarkPlus,
+// } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
-import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
-import { pojoaque } from "react-syntax-highlighter/dist/esm/styles/hljs";
+// import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
+// import { pojoaque } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import {
+  // gruvboxDark,
+  pojoaque,
+} from "react-syntax-highlighter/dist/esm/styles/prism";
 
 type CodeBlockProps = {
   language: string;
@@ -14,6 +25,7 @@ const CodeBlock: FC<CodeBlockProps> = ({ language, code }) => {
       <div className="shadow-md rounded rounded-lg my-4 overflow-hidden">
         <SyntaxHighlighter
           language={language}
+          // style={pojoaque}
           style={pojoaque}
           wrapLines={true}
           wrapLongLines

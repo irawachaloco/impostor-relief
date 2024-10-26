@@ -27,6 +27,11 @@ const ReactSection = () => {
       text: "Timer",
       url: "./react/timer",
     },
+    {
+      id: 1,
+      text: "Modal",
+      url: "./react/modal",
+    },
   ];
   return (
     <div>
