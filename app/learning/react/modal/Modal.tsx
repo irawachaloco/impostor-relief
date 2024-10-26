@@ -1,9 +1,12 @@
 import React from "react";
 
 const ModalForm = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
+
   return (
-    <form>
-      {/* <form onSubmit={handleSubmit}> */}
+    <form onSubmit={handleSubmit}>
       <label htmlFor="inputField" className="sr-only">
         Enter something...
       </label>
