@@ -26,13 +26,13 @@ const BreadCrumb = () => {
             //
             <li className={isLast} key={index}>
               <Link href={segment_href}>
-                <text
+                <span
                   className={`text-gray-400 text-sm ${
                     segment_href == pathName ? "underline" : ""
                   }`}
                 >
                   {linkText}
-                </text>
+                </span>
               </Link>
             </li>
           );

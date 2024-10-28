@@ -32,7 +32,7 @@ export default function RootLayout({
       >
         <div className="h-screen w-screen grid grid-rows-[auto,1fr] max-w-full">
           <NavBar />
-          <div className="max-w-[100vw] items-center justify-items-center pb-20 gap-16 px-8 sm:px-20 sm:pt-4 sm:pb-20 font-[family-name:var(--font-geist-sans)]">
+          <div className="max-w-[100vw] pb-20 gap-16 px-8 sm:px-20 sm:pt-4 sm:pb-20 font-[family-name:var(--font-geist-sans)]">
             <BreadCrumb />
             {children}
           </div>
