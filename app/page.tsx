@@ -5,7 +5,7 @@ const QUOTE_SIGNATURE = `The Impostør`;
 
 const WELCOME_TEXT = `Welcome to Impostor Relief!`;
 
-const CONTENT_TEXT_1 = `Perhaps, if you are like me, you may have fallen victim to the infamous 'impostor syndrome,' which seems to strike anyone who dares or simply happens to step outside their comfort zone.`;
+const CONTENT_TEXT_1 = `Perhaps, if you are like me, you may have fallen victim to the infamous 'impostor syndrome' which seems to strike anyone who dares or simply happens to step outside their comfort zone.`;
 
 const CONTENT_TEXT_2 = `I am a philosopher by education and a chronic artist by the pulse of my soul. Then, I became a programmer.`;
 
