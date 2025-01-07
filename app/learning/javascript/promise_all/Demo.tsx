@@ -295,6 +295,7 @@ const Demo = () => {
   const [output, setOutput] = useState("");
   const [loading, setLoading] = useState(false);
   const [strategy, setStrategy] = useState<Strategy>(Strategy.BuiltIn);
+  const [hasLoaded, setHasLoaded] = useState(false);
 
   const generateCadavreExquis = useCallback(async (): Promise<void> => {
     setLoading(true);
@@ -324,8 +325,11 @@ const Demo = () => {
 
   // Generate the initial sentence on mount
   useEffect(() => {
-    generateCadavreExquis();
-  }, [generateCadavreExquis]); // Ensures it runs only once
+    if (!hasLoaded) {
+      generateCadavreExquis();
+      setHasLoaded(true);
+    }
+  }, [generateCadavreExquis, hasLoaded]); // Ensures it runs only once
 
   return (
     <Section>
