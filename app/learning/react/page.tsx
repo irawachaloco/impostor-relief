@@ -32,6 +32,11 @@ const ReactSection = () => {
       text: "Modal",
       url: "./react/modal",
     },
+    {
+      id: 1,
+      text: "Context: theme switch",
+      url: "./react/theme_context",
+    },
   ];
   return (
     <div>

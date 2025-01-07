@@ -65,7 +65,7 @@ const Modal: React.FC<ModalProps> = ({ hidden = true, handleClose }) => {
     >
       <div className="modal-overlay fixed inset-0 bg-black opacity-50 pointer-events-none"></div>
       <div className="modal-content bg-white w-96 mx-auto p-6 rounded-lg relative">
-        <h2 className="text-2xl font-bold mb-4">Modal Title</h2>
+        <h2 className="text-2xl font-bold mb-4">Are you an impostor?</h2>
         <ModalForm />
         <button
           className="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
