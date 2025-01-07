@@ -17,6 +17,11 @@ const JavascriptPage = () => {
       text: "Debounce and Throttle",
       url: "./javascript/debounce_and_throttle",
     },
+    {
+      id: 3,
+      text: "Promise all",
+      url: "./javascript/promise_all",
+    },
   ];
 
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import Demo from "./Demo";
+// import Demo from "./Demo";
 
 const MapFunctionChapter = () => {
   return (
@@ -7,7 +7,7 @@ const MapFunctionChapter = () => {
       <section>
         <h1>Map Function Chapter</h1>
       </section>
-      <Demo />
+      {/* <Demo /> */}
     </div>
   );
 };
