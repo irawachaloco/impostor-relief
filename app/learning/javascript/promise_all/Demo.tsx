@@ -1,9 +1,10 @@
 "use client";
 
 import Section from "@/app/components/Section";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 type WordSets = string[][];
+type StrategyInput = Promise<string>[] | (() => Promise<string>)[];
 
 const wordSets: WordSets = [
   // First set of subjects
@@ -159,11 +160,11 @@ const getRandomWordPromise = (
 ): Promise<string> => {
   return new Promise((resolve) => {
     const index = Math.floor(Math.random() * set.length);
-    const randomMilliseconds = Math.floor(Math.random() * 3001);
+    const randomMilliseconds = Math.floor(Math.random() * 2001);
     setTimeout(() => {
       const word = set[index];
       console.log(
-        `Word created ->  ${word}, set: ${setIndex} in: ${randomMilliseconds}`
+        `Picked word/s ->  ${word}, set: ${setIndex} time: ${randomMilliseconds} ms`
       );
       resolve(word);
     }, randomMilliseconds);
@@ -171,7 +172,6 @@ const getRandomWordPromise = (
 };
 
 // ***** Promise all implementations *****
-
 async function promiseAllRecursive<T>(
   values: (T | Promise<T>)[]
 ): Promise<T[]> {
@@ -267,228 +267,65 @@ async function promiseAllSequential<T>(
   return results;
 }
 
-// ===============================================================================
-// End of list
-
-function createCadavreExquisWithCustomPromiseAll<T>(
-  promises: (T | Promise<T>)[]
-): Promise<T[]> {
-  console.time("Concurrent Execution Time");
-
-  return new Promise((resolve, reject) => {
-    const resolvedValues: T[] = [];
-    let counter = 0;
-
-    promises.forEach((currentPromise, index) => {
-      console.time(`Task ${index} Execution Time`);
-
-      // Promise.resolve(currentPromise) // Convert the value in Promise
-      Promise.resolve(currentPromise) // Convert the value in Promise
-
-        // if currentPromise !== Promise make it Promise
-        //  currentPromise = new Promise((resolve, reject)=>{ resolve(currentPromise)})
-
-        // currentPromise = Promise.resolve(currentPromise)
-
-        // currentPromise.then(result => console.log(result))
-        // currentPromise.then...
-
-        .then((value) => {
-          console.timeEnd(`Task ${index} Execution Time`);
-          resolvedValues[index] = value;
-          counter++;
-
-          if (counter === promises.length) {
-            console.timeEnd("Concurrent Execution Time");
-            console.log("ALL PROMISES DONE!!");
-            resolve(resolvedValues);
-          }
-        })
-        .catch((error) => {
-          console.timeEnd(`Task ${index} Execution Time`);
-          console.timeEnd("Concurrent Execution Time");
-          reject(error);
-        });
-    });
-  });
-}
-
-async function createCadavreExquisWithPromiseAll<T>(
-  sets: (T | Promise<T>)[]
-): Promise<T[]> {
-  console.time("Promise.all Exection Time");
-
-  try {
-    const results = await Promise.all(sets);
-    console.log("PROMISE.ALL PROMISES DONE");
-    console.timeEnd("Promise.all Exection Time");
-    return results;
-  } catch (error) {
-    console.error("Error creating sentence: ", error);
-    throw error;
-  }
-}
-
-async function createCadavreExquisSequentially<T>(
-  sets: (T | Promise<T>)[]
-): Promise<T[]> {
-  console.time("Sequential Execution Time");
-  const results: T[] = [];
-  for (let i = 0; i < sets.length; i++) {
-    try {
-      const randomTime = Math.floor(Math.random() * 2001 + 1000);
-      const set = sets[i];
-      console.time(`Task ${i} Execution Time`);
-      // const result = await Promise.resolve(set);
-      const result = await new Promise<T>((resolve) => {
-        setTimeout(async () => {
-          resolve(await Promise.resolve(set));
-        }, randomTime);
-        // Promise
-      });
-      console.timeEnd(`Task ${i} Execution Time`);
-      results.push(result);
-    } catch (error) {
-      console.error("Error processing set: ", error);
-      throw error;
-    }
-  }
-
-  console.log("ALL PROMISES RESOLVED SEQUENTIALLY!!");
-  console.timeEnd("Sequential Execution Time");
-  return results;
-}
-
 enum Strategy {
   Recursive = "RECURSIVE",
   Iterative = "ITERATIVE",
   Reducer = "REDUCER",
   BuiltIn = "BUILT-IN",
-  Sequential = "SEQUENTIAL",
   Custom = "CUSTOM",
+  Sequential = "SEQUENTIAL",
 }
 
-type StrategyInput = Promise<string>[] | (() => Promise<string>)[];
-
-const strategies: Record<
-  Strategy,
-  (input: StrategyInput) => Promise<string[]>
-> = {
-  [Strategy.Recursive]: (promises) =>
-    promiseAllRecursive(promises as Promise<string>[]),
-  [Strategy.Iterative]: (promises) =>
-    promiseAllCustomImplementation(promises as Promise<string>[]),
-  [Strategy.Reducer]: (promises) =>
-    promiseAllReducer(promises as Promise<string>[]),
-  [Strategy.BuiltIn]: (promises) =>
-    promiseAllBuiltIn(promises as Promise<string>[]),
-  [Strategy.Custom]: (promises) =>
-    promiseAllIterative(promises as Promise<string>[]),
-  [Strategy.Sequential]: (promiseFactories) =>
-    promiseAllSequential(promiseFactories as (() => Promise<string>)[]),
+const strategies = {
+  [Strategy.Recursive]: (inputs: StrategyInput) =>
+    promiseAllRecursive(inputs as Promise<string>[]),
+  [Strategy.Iterative]: (inputs: StrategyInput) =>
+    promiseAllCustomImplementation(inputs as Promise<string>[]),
+  [Strategy.Reducer]: (inputs: StrategyInput) =>
+    promiseAllReducer(inputs as Promise<string>[]),
+  [Strategy.BuiltIn]: (inputs: StrategyInput) =>
+    promiseAllBuiltIn(inputs as Promise<string>[]),
+  [Strategy.Custom]: (inputs: StrategyInput) =>
+    promiseAllIterative(inputs as Promise<string>[]),
+  [Strategy.Sequential]: (inputs: StrategyInput) =>
+    promiseAllSequential(inputs as (() => Promise<string>)[]),
 };
 
 const Demo = () => {
   const [output, setOutput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [strategy, setStrategy] = useState<Strategy>(Strategy.BuiltIn);
 
-  const generateCadavreExquis = async (
-    selectedStrategy: Strategy
-  ): Promise<void> => {
+  const generateCadavreExquis = useCallback(async (): Promise<void> => {
     setLoading(true);
-    console.time("generateCadavreExquis Execution Time");
+    console.time("Cadavre Exquis Generation Execution Time");
+
     try {
       // Decide input type based on strategy
-      const isSequential = selectedStrategy === Strategy.Sequential;
+      const input =
+        strategy === Strategy.Sequential
+          ? wordSets.map((set, index) => {
+              return () => getRandomWordPromise(set, index);
+            })
+          : wordSets.map((set, index) => {
+              return getRandomWordPromise(set, index);
+            });
 
-      const input = isSequential
-        ? wordSets.map((set, index) => {
-            return () => getRandomWordPromise(set, index);
-          })
-        : wordSets.map((set, index) => {
-            return getRandomWordPromise(set, index);
-          });
+      const result = await strategies[strategy](input as StrategyInput);
 
-      // const promises = wordSets.map((set, index) => {
-      //   // return () => getRandomWordPromise(set, index);
-      //   return getRandomWordPromise(set, index);
-      // });
-
-      if (!strategies[selectedStrategy]) {
-        throw new Error(`Invalid strategy selected ${selectedStrategy}`);
-      }
-
-      // OJO aquí
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const wordArray = await strategies[selectedStrategy](input as any);
-
-      const result = wordArray.join(" ");
-
-      setOutput(result);
+      setOutput(result.join(" "));
     } catch (error) {
-      console.error("Somenting wennt wrong on promises:", error);
+      console.error("Error generating sentence:", error);
     } finally {
-      console.timeEnd("generateCadavreExquis Execution Time");
+      console.timeEnd("Cadavre Exquis Generation Execution Time");
       setLoading(false);
     }
-  };
-
-  const generateCadavreExquisWithCustomPromiseAllMethod = async () => {
-    setLoading(true);
-    try {
-      const promises = wordSets.map((set, index) =>
-        getRandomWordPromise(set, index)
-      );
-      const words = await createCadavreExquisWithCustomPromiseAll(promises);
-      const result = words.join(" ");
-
-      setOutput(result);
-    } catch (error) {
-      console.error("Error generating sentence", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const generateCadavreExquisWithPromiseAll = async () => {
-    setLoading(true);
-    try {
-      const promises = wordSets.map((set, index) =>
-        getRandomWordPromise(set, index)
-      );
-      const words = await createCadavreExquisWithPromiseAll(promises);
-      const result = words.join(" ");
-      setOutput(result);
-    } catch (error) {
-      console.error("Error generating sentence");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const generateCadavreExquisSequentially = async () => {
-    setLoading(true);
-    try {
-      const promises = wordSets.map((set, index) =>
-        getRandomWordPromise(set, index)
-      );
-
-      const words = await createCadavreExquisSequentially(promises);
-
-      const result = words.join(" ");
-
-      setOutput(result);
-    } catch (error) {
-      console.error("Error generating sentence", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  }, [strategy]);
 
   // Generate the initial sentence on mount
   useEffect(() => {
-    generateCadavreExquisWithPromiseAll();
-  }, []); // Ensures it runs only once
+    generateCadavreExquis();
+  }, [generateCadavreExquis]); // Ensures it runs only once
 
   return (
     <Section>
@@ -496,12 +333,11 @@ const Demo = () => {
         <h2 className="text-2xl font-bold font-serif text-yellow-900 mb-4 uppercase">
           Cadavre Exquis
         </h2>
-        {loading && (
+        {loading ? (
           <p className="text-yellow-800 text-3xl font-serif leading-relaxed">
             Creating...
           </p>
-        )}
-        {output && !loading && (
+        ) : (
           <p className="text-yellow-800 text-3xl font-serif leading-relaxed">
             <span className="text-3xl text-yellow-900 font-bold mr-2">
               &ldquo;
@@ -512,34 +348,39 @@ const Demo = () => {
             </span>
           </p>
         )}
+
         <div className="absolute inset-0 rounded-lg border-dotted border-yellow-700 border-2 pointer-events-none"></div>
       </div>
 
       <div className="flex flex-col md:flex-row md:items-center md:space-x-4 md:space-y-0 space-y-4">
+        <select
+          className="rounded border border-gray-300 p-2"
+          value={strategy}
+          onChange={(e) => setStrategy(e.target.value as Strategy)}
+          aria-label="Select strategy"
+        >
+          {Object.values(Strategy).map((strat) => (
+            <>
+              <option key={strat} value={strat}>
+                {strat}
+              </option>
+            </>
+          ))}
+        </select>
+
         <button
           className="rounded bg-blue-500 text-white p-2 active:bg-blue-700 active:shadow-lg "
-          onClick={generateCadavreExquisSequentially}
+          onClick={generateCadavreExquis}
+          disabled={loading}
         >
-          Create new sequential
+          Generate
         </button>
-        <button
+        {/* <button
           className="rounded bg-blue-500 text-white p-2 active:bg-blue-700 active:shadow-lg "
-          onClick={generateCadavreExquisWithCustomPromiseAllMethod}
+          onClick={() => generateCadavreExquis(Strategy.BuiltIn)}
         >
-          Create new concurrently
-        </button>
-        <button
-          className="rounded bg-blue-500 text-white p-2 active:bg-blue-700 active:shadow-lg "
-          onClick={generateCadavreExquisWithPromiseAll}
-        >
-          Create new Promise.all
-        </button>
-        <button
-          className="rounded bg-blue-500 text-white p-2 active:bg-blue-700 active:shadow-lg "
-          onClick={() => generateCadavreExquis(Strategy.Sequential)}
-        >
-          Create new One
-        </button>
+          Create concurrently
+        </button> */}
       </div>
     </Section>
   );
