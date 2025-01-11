@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/prism";
+import SyntaxHighlighter from "react-syntax-highlighter/dist/cjs/prism";
 // import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/prism-async-light";
 // import { funky } from "react-syntax-highlighter/dist/cjs/styles/prism";
 // import {
@@ -9,10 +9,13 @@ import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/prism";
 
 // import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
 // import { pojoaque } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import {
-  // gruvboxDark,
-  pojoaque,
-} from "react-syntax-highlighter/dist/esm/styles/prism";
+
+// import {
+//   // gruvboxDark,
+//   pojoaque,
+// } from "react-syntax-highlighter/dist/cjs/styles/prism";
+
+import pojoaque from "react-syntax-highlighter/dist/cjs/styles/prism/pojoaque";
 
 type CodeBlockProps = {
   language: string;
