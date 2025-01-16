@@ -1,0 +1,60 @@
+.kusama-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Default: one column */
+  gap: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Two-column layout for larger screens */
+// @media (min-width: 768px) {
+@media (min-width: 1200px) {
+  .kusama-grid {
+    grid-template-columns: repeat(3, 1fr); /* Two columns */
+  }
+}
+
+.kusama-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 500px;
+}
+
+.kusama-cell h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.kusama-cell canvas {
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.kusama-cell p {
+  font-size: 0.9em;
+  text-align: center;
+  color: #666;
+}
+
+//
+
+.section-title {
+  font-size: 2em;
+  font-weight: bold;
+  //   text-align: center;
+  margin-bottom: 10px;
+  color: #333;
+}
+.author {
+  font-size: 3em;
+  font-weight: bold;
+  //   text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}

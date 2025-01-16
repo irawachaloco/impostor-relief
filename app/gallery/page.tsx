@@ -8,6 +8,11 @@ const GallerySection = () => {
       text: "Text mask",
       url: "./gallery/text_mask",
     },
+    {
+      id: 2,
+      text: "Scripted Strokes",
+      url: "./gallery/scripted_strokes",
+    },
   ];
 
   return (
