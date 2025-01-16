@@ -1,7 +1,7 @@
 "use client";
 
 import DemoSection from "@/app/components/DemoSection";
-import React, { createContext, FC, useContext, useState } from "react";
+import React, { FC } from "react";
 import { ThemeProvider, useTheme } from "./ThemeContext";
 import styles from "./Theme.module.css";
 
