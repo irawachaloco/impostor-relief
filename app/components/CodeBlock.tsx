@@ -1,5 +1,8 @@
 import React, { FC } from "react";
-import SyntaxHighlighter from "react-syntax-highlighter/dist/cjs/prism";
+import SyntaxHighlighter from "react-syntax-highlighter/dist/cjs/prism"; // Nota: aquí era necesario el cjs en vez de esm para evitar un error de sintaxis
+// SyntaxError: Unexpected token
+// https://github.com/react-syntax-highlighter/react-syntax-highlighter/issues/230
+
 // import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/prism-async-light";
 // import { funky } from "react-syntax-highlighter/dist/cjs/styles/prism";
 // import {
