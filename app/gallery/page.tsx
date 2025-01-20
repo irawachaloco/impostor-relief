@@ -10,18 +10,18 @@ const GallerySection = () => {
     },
     {
       id: 2,
-      text: "Scripted Strokes",
-      url: "./gallery/scripted_strokes",
+      text: "Inspired By",
+      url: "./gallery/inspired_by",
     },
   ];
 
   return (
     <div>
-      <h2 className="text-[#686868] text-2xl font-bold mb-4">
+      <h2 className="text-[#686868] text-2xl font-bold mb-4">Gallery 🎨</h2>
+      <h2 className="text-[#686868] text-lg font-semibold mb-6">
         In this section you can find visual experiments and kind of related
-        stuff 🎨
+        stuff. Enjoy.
       </h2>
-      <h2 className="text-[#686868] text-lg font-semibold mb-6">Enjoy.</h2>
       <LinksGrid links={links} />
     </div>
   );
