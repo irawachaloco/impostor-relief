@@ -17,6 +17,8 @@ const CONTENT_TEXT_5 = `So, let's embrace the impostor feeling and dive deeper i
 
 const CONTENT_TEXT_6 = `Cheers, and I hope you enjoy it.`;
 
+const CONTENT_TEXT_7 = `Omar Ponce Bañuelos`;
+
 export default function Home() {
   return (
     <div className="flex flex-col items-center">
@@ -34,21 +36,14 @@ export default function Home() {
             &mdash; {QUOTE_SIGNATURE}
           </footer>
         </blockquote>
-        <div className="pt-10 max-w-prose">
-          <h2 className="text-xl pt-10">
-            <p>{CONTENT_TEXT_1}</p>
-            <br />
-            <p>{CONTENT_TEXT_2}</p>
-            <br />
-            <p>{CONTENT_TEXT_3}</p>
-            <br />
-            <p>{CONTENT_TEXT_4}</p>
-            <br />
-            <p>{CONTENT_TEXT_5}</p>
-            <br />
-            <p>{CONTENT_TEXT_6}</p>
-            <br />
-          </h2>
+        <div className="max-w-prose text-xl pt-10 space-y-4">
+          <p>{CONTENT_TEXT_1}</p>
+          <p>{CONTENT_TEXT_2}</p>
+          <p>{CONTENT_TEXT_3}</p>
+          <p>{CONTENT_TEXT_4}</p>
+          <p>{CONTENT_TEXT_5}</p>
+          <p>{CONTENT_TEXT_6}</p>
+          <p className="italic">{CONTENT_TEXT_7}</p>
         </div>
       </div>
     </div>
