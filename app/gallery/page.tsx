@@ -19,8 +19,8 @@ const GallerySection = () => {
     <div>
       <h2 className="text-[#686868] text-2xl font-bold mb-4">Gallery 🎨</h2>
       <h2 className="text-[#686868] text-lg font-semibold mb-6">
-        In this section you can find visual experiments and kind of related
-        stuff. Enjoy.
+        Behold! A collection of visual wizardry, CSS sorcery, and code-powered
+        illusions. Enjoy the ride!
       </h2>
       <LinksGrid links={links} />
     </div>
