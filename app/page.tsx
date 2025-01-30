@@ -5,19 +5,19 @@ const QUOTE_SIGNATURE = `The Impostør`;
 
 const WELCOME_TEXT = `Welcome to Impostor Relief!`;
 
-const CONTENT_TEXT_1 = `Perhaps, if you are like me, you may have fallen victim to the infamous 'impostor syndrome' which seems to strike anyone who dares or simply happens to step outside their comfort zone.`;
+const CONTENT_TEXT_1 = `If you're like me, you may have fallen victim to the infamous 'impostor syndrome' which seems to strike anyone who dares to step outside their comfort zone or simply happens to.`;
 
-const CONTENT_TEXT_2 = `I am a philosopher by education and a chronic artist by the pulse of my soul. Then, I became a programmer.`;
+const CONTENT_TEXT_2 = `I am a philosopher by education and a chronic artist by the pulse of my soul. Then, against all odds, I became a programmer.`;
 
-const CONTENT_TEXT_3 = `As a patient of philosophy and art turned into a coder, I can tell you, coding is hard.`;
+const CONTENT_TEXT_3 = `As a long-suffering patient of philosophy and art who somehow ended up in the coding ward, I can assure you—coding is hard. Side effects may include—aside from certain unspeakable horrors I’d rather not name— an ever-growing collection of half-finished side projects, and the uncontrollable urge to rewrite everything from scratch.`;
 
-const CONTENT_TEXT_4 = `Sometimes you will feel overwhelmed, but such is life, isn't it?`;
+const CONTENT_TEXT_4 = `Sometimes you will feel overwhelmed. But such is life, isn't it?`;
 
-const CONTENT_TEXT_5 = `So, let's embrace the impostor feeling and dive deeper into the authentic coding world. This will be my personal scratchpad as I explore and learn some genuine dev stuff!`;
+const CONTENT_TEXT_5 = `So, let's embrace the impostor feeling and dive deeper into the world of authentic coding. This space will be my personal scratchpad as I explore, break things, fix them (hopefully), and document some genuine dev insights along the way.`;
 
-const CONTENT_TEXT_6 = `Cheers, and I hope you enjoy it.`;
+const CONTENT_TEXT_6 = `Cheers, and I hope you enjoy the journey!`;
 
-const CONTENT_TEXT_7 = `Omar Ponce Bañuelos`;
+const CONTENT_TEXT_7 = `— Omar Ponce Bañuelos`;
 
 export default function Home() {
   return (
@@ -43,7 +43,7 @@ export default function Home() {
           <p>{CONTENT_TEXT_4}</p>
           <p>{CONTENT_TEXT_5}</p>
           <p>{CONTENT_TEXT_6}</p>
-          <p className="italic">{CONTENT_TEXT_7}</p>
+          <p className="italic pt-4">{CONTENT_TEXT_7}</p>
         </div>
       </div>
     </div>
