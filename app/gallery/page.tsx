@@ -10,8 +10,8 @@ const GallerySection = () => {
     },
     {
       id: 2,
-      text: "Inspired By",
-      url: "./gallery/inspired_by",
+      text: "Painted by Machine",
+      url: "./gallery/painted_by_machine",
     },
   ];
 
