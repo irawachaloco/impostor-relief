@@ -52,18 +52,20 @@ const DecoratedFunctionDemo = () => {
 
   return (
     <DemoSection>
-      <p className="text-lg text-gray-600 font-bold pb-2">
-        {SECTION_CONTENT_1}
-      </p>
-      <InputForm
-        handleOnSubmit={handleOnSubmit}
-        handleOnChange={handleOnChange}
-        errorMessage={error || ""}
-        value={inputValue}
-        label={INPUT_LABEL_TEXT}
-        placeholder="E.g., 1, 2, 3"
-      />
-      <Outcome result={result} inputValue={inputValue} />
+      <div className="max-w-2xl">
+        <p className="text-lg text-gray-600 font-bold pb-2">
+          {SECTION_CONTENT_1}
+        </p>
+        <InputForm
+          handleOnSubmit={handleOnSubmit}
+          handleOnChange={handleOnChange}
+          errorMessage={error || ""}
+          value={inputValue}
+          label={INPUT_LABEL_TEXT}
+          placeholder="E.g., 1, 2, 3"
+        />
+        <Outcome result={result} inputValue={inputValue} />
+      </div>
     </DemoSection>
   );
 };

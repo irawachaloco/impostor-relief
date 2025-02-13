@@ -29,25 +29,27 @@ const Demo_2 = () => {
 
   return (
     <DemoSection>
-      <h1 className="font-bold text-lg text-gray-600 mb-2">Throttle</h1>
-      <p className="pb-4">{`If you continue clicking, the result will be updated every 1 second! Let's try it.`}</p>
-      <p className="pb-4">{`This input is throttled, it will store and print the value each second even if you keeps clicking. Try clicking rapidly to see the throttling effect`}</p>
-      <form onSubmit={handleOnClick}>
-        <p className="block mb-2 text-gray-700">Input:</p>
-        <button className="rounded bg-blue-500 text-white p-2 mb-4 active:bg-blue-700 active:shadow-lg ">
-          Submit
-        </button>
-      </form>
-      <p className="text-gray-600 font-md">
-        <span>You have clicked</span>
-        <em> {count} </em>
-        <span>times</span>
-      </p>
-      <Outcome
-        result={result}
-        hint="Click on the submit a couple of times to see the result."
-      />
-      <p>{`As you can notice, the throttled result, keeps the last call untill you tigger the function again. This means, it will keep the last call for the upcoming call`}</p>
+      <div className="max-w-2xl">
+        <h1 className="font-bold text-lg text-gray-600 mb-2">Throttle</h1>
+        <p className="pb-4">{`If you continue clicking, the result will be updated every 1 second! Let's try it.`}</p>
+        <p className="pb-4">{`This input is throttled, it will store and print the value each second even if you keeps clicking. Try clicking rapidly to see the throttling effect`}</p>
+        <form onSubmit={handleOnClick}>
+          <p className="block mb-2 text-gray-700">Input:</p>
+          <button className="rounded bg-blue-500 text-white p-2 mb-4 active:bg-blue-700 active:shadow-lg ">
+            Submit
+          </button>
+        </form>
+        <p className="text-gray-600 font-md">
+          <span>You have clicked</span>
+          <em> {count} </em>
+          <span>times</span>
+        </p>
+        <Outcome
+          result={result}
+          hint="Click on the submit a couple of times to see the result."
+        />
+        <p className="pt-4">{`As you can notice, the throttled result, keeps the last call untill you tigger the function again. This means, it will keep the last call for the upcoming call`}</p>
+      </div>
     </DemoSection>
   );
 };

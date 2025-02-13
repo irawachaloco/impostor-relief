@@ -8,7 +8,7 @@ type DemoSectionProps = {
 const DemoSection: React.FC<DemoSectionProps> = ({ children }) => {
   return (
     <Section>
-      <div className="max-w-2xl">
+      <div>
         <p>Demo</p>
         {children}
       </div>

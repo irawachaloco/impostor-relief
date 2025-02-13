@@ -34,7 +34,6 @@ const NoteForm: React.FC<NoteFormProps> = ({
   return (
     <form onSubmit={handleOnSubmit}>
       <input
-        className="border-[1px] border-gray-300 p-2 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
         type="text"
         value={inputValue}
         placeholder="Type a note here"
@@ -56,17 +55,15 @@ const NoteItem: React.FC<NoteItemProps> = ({
   handleOnDelete,
 }) => {
   return (
-    <li className="flex justify-between items-center bg-gray-100 p-4 rounded-md shadow-md">
-      <span className="text-gray-800">{note.content}</span>
-      <div className="flex space-x-2">
+    <li>
+      <span>{note.content}</span>
+      <div>
         <button
-          className="px-3 py-1 bg-blue-500 text-white text-sm rounded-md hover:bg-blue-600"
           onClick={() => handleOnEdit(note)}
         >
           Edit
         </button>
         <button
-          className="px-3 py-1 bg-red-500 text-white text-sm rounded-md hover:bg-red-600"
           onClick={() => handleOnDelete(note)}
         >
           Remove
@@ -90,7 +87,7 @@ const NotesTable: React.FC<NotesTableProps> = ({
   return (
     <>
       <h2>Your notes:</h2>
-      <ul className="space-y-4">
+      <ul>
         {noteList.map((note) => (
           <NoteItem
             key={note.id}
@@ -155,7 +152,7 @@ const NoteManager: React.FC = () => {
         handleOnChange={handleOnChange}
         handleOnSubmit={handleOnSubmit}
       />
-      <div className="mt-6">
+      <div>
         <NotesTable
           noteList={notes}
           handleOnEdit={handleOnEdit}
@@ -190,7 +187,7 @@ const NoteManagerChapter = () => {
         </div>
 
         <div className="max-w-2xl pb-6">
-          <CodeBlock language="typescript" code={NOTE_MANAGER_CODE} />
+          <CodeBlock language="tsx" code={NOTE_MANAGER_CODE} />
         </div>
       </section>
     </div>

@@ -188,15 +188,29 @@ const ImplementingPromiseAllChapter = () => {
       <section>
         <div className="max-w-2xl">
           <p>{CHAPTER_CONTENT_3}</p>
+        </div>
+        <div className="max-w-prose">
           <CodeBlock language="ts" code={RANDOM_WORD_CODE} />
+        </div>
+        <div className="max-w-2xl">
           <p>{CHAPTER_CONTENT_4}</p>
+        </div>
+        <div className="max-w-prose">
           <CodeBlock language="ts" code={PROMISE_ALL_IMPLEMENTATION_CODE} />
+        </div>
+        <div className="max-w-2xl">
           <p>
             This is the sequential one, the trick here is to await for each
             promise.
           </p>
+        </div>
+        <div className="max-w-prose">
           <CodeBlock language="ts" code={PROMISE_ALL_SEQUENTIAL_CODE} />
+        </div>
+        <div className="max-w-2xl">
           <p>{CHAPTER_CONTENT_5}</p>
+        </div>
+        <div className="max-w-prose">
           <CodeBlock language="ts" code={USING_PROMISE_ALL_CODE} />
         </div>
       </section>

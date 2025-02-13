@@ -30,16 +30,18 @@ const Demo = () => {
       <h1 className="font-bold text-lg text-gray-600 mb-2">Debounce</h1>
       <p className="pb-4">{`If you keep typing, the result will never be updated! Let's try to write something.`}</p>
       <p className="pb-4">{`This input is debounced, it will only store and print the value once you stop typing for more than 1 second.`}</p>
-      <InputForm
-        handleOnChange={handleOnChange}
-        value={inputValue}
-        label="Input:"
-        placeholder="Start typing some text"
-      />
-      <Outcome
-        result={result}
-        hint="The result will appear once you stop typing"
-      />
+      <div className="max-w-2xl">
+        <InputForm
+          handleOnChange={handleOnChange}
+          value={inputValue}
+          label="Input:"
+          placeholder="Start typing some text"
+        />
+        <Outcome
+          result={result}
+          hint="The result will appear once you stop typing"
+        />
+      </div>
     </DemoSection>
   );
 };

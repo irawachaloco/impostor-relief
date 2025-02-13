@@ -25,13 +25,23 @@ const ReactSection = () => {
     },
     {
       id: 1,
-      text: "Fetch an API",
-      url: "./react/fetch_random_character",
+      text: "Note manager",
+      url: "./react/note_manager",
     },
     {
       id: 1,
       text: "Theme switch",
       url: "./react/theme_context",
+    },
+    {
+      id: 1,
+      text: "Rick and Morty character",
+      url: "./react/fetch_random_character",
+    },
+    {
+      id: 1,
+      text: "Pokemon grid ",
+      url: "./react/fetch_pokemons",
     },
   ];
   return (

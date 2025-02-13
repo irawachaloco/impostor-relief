@@ -727,12 +727,11 @@ const ScriptedStrokes = () => {
       <section className="pb-10">
         {/* Section Title */}
         {/* <h2 className="section-title">{section.author}</h2> */}
-        <h1 className="section-title">Inspired By</h1>
+        <h1 className="section-title">Painted by Machine</h1>
         <p>
           This is a curated collection of code-turned-art, brought to life with
           the assistance of AI. It is inspired by the creativity and brilliance
-          of talented—and perhaps solitary—artists I deeply admire. Enjoy the
-          journey!
+          of the talented artists I deeply admire. Enjoy!
         </p>
       </section>
 

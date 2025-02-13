@@ -58,7 +58,9 @@ const simpleThrottleWithLast = (func, time) => {
 const CONTENT_TEXT_3 = `Then, you can use it like this:`;
 
 const USING_DEBOUNCE_CODE = `
-const storeValue = (val) => { ...do something }
+const storeValue = (val) => { 
+  // ...do something
+}
 
 const handleChange = (e) => {
   const value = e.target.value;
@@ -74,18 +76,24 @@ const DebouncePage = () => {
         {DESCRIPTION_TEXT}
       </h1>
       <section>
-        <div className="max-w-2xl">
-          <p>{CONTENT_TEXT_1}</p>
-          <h1 className="text-[#686868] text-lg font-semibold mt-6 mb-4">
-            {DEBOUNCE_HEADER}
-          </h1>
-          <p>{CONTENT_TEXT_2}</p>
-          <CodeBlock language="javascript" code={DEBOUNCE_CODE} />
+        <div className="max-w-2xl_">
+          <div className="max-w-2xl">
+            <p>{CONTENT_TEXT_1}</p>
+            <h1 className="text-[#686868] text-lg font-semibold mt-6 mb-4">
+              {DEBOUNCE_HEADER}
+            </h1>
+            <p>{CONTENT_TEXT_2}</p>
+          </div>
+          <div className="max-w-prose">
+            <CodeBlock language="javascript" code={DEBOUNCE_CODE} />
+          </div>
         </div>
         <div className="max-w-2xl">
           <p>{CONTENT_TEXT_3}</p>
-          <CodeBlock language="javascript" code={USING_DEBOUNCE_CODE} />
           <p>{`So now, we can see it in action:`}</p>
+        </div>
+        <div className="max-w-prose">
+          <CodeBlock language="javascript" code={USING_DEBOUNCE_CODE} />
         </div>
       </section>
       <Demo />
@@ -96,6 +104,8 @@ const DebouncePage = () => {
           </h1>
           <p>{CONTENT_TEXT_4}</p>
           <p>{CONTENT_TEXT_5}</p>
+        </div>
+        <div className="max-w-prose">
           <CodeBlock language="javascript" code={THROTTLE_CODE} />
         </div>
         {/* <div className="max-w-2xl">
