@@ -725,8 +725,7 @@ const ScriptedStrokes = () => {
   return (
     <div>
       <section className="pb-10">
-        {/* Section Title */}
-        {/* <h2 className="section-title">{section.author}</h2> */}
+        {/* Chapter Title */}
         <h1 className="section-title">Painted by Machine</h1>
         <p>
           This is a curated collection of code-turned-art, brought to life with
@@ -734,13 +733,12 @@ const ScriptedStrokes = () => {
           of the talented artists I deeply admire. Enjoy!
         </p>
       </section>
-
-      {/* <h2 className="author">Yayoi Kusama</h2> */}
-
       <section>
+        {/* ## Entire Collection of Sections ## */}
         {sections.map((section, sectionIndex) => (
           <div key={sectionIndex}>
             <h2 className="section-title">{section.author}</h2>
+            {/* ## Section Grid ## */}
             <div className="kusama-grid">
               {section.artworks.map((artwork, index) => (
                 <div className="kusama-cell" key={index}>
@@ -769,16 +767,6 @@ const ScriptedStrokes = () => {
                       width: "100%", // Let the CSS control width
                       height: "80%", // Let the CSS control height (matches max-height in CSS)
                     }}
-                    // width={200}
-                    // height={200}
-                    // ref={(canvas) => {
-                    //   if (canvas) {
-                    //     const ctx = canvas.getContext("2d");
-                    //     if (ctx) {
-                    //       artwork.draw(ctx, canvas.width, canvas.height);
-                    //     }
-                    //   }
-                    // }}
                   ></canvas>
                   <p>{artwork.description}</p>
                 </div>

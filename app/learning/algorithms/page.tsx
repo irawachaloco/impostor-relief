@@ -45,7 +45,7 @@ const AlgorithmsSection = () => {
       <h2 className="text-[#686868] text-lg font-semibold mb-6">
         {DESCRIPTION_TEXT}
       </h2>
-      <LinksGrid links={links} />
+      <LinksGrid chapters={links} />
     </div>
   );
 };

@@ -22,7 +22,7 @@ const GallerySection = () => {
         Behold! A collection of visual wizardry, CSS sorcery, and code-powered
         illusions. Enjoy the ride!
       </h2>
-      <LinksGrid links={links} />
+      <LinksGrid chapters={links} />
     </div>
   );
 };

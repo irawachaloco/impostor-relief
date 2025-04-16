@@ -10,6 +10,7 @@ const BurgerButton = ({ handleMenuToggle, isOpen }: BurgerButtonProps) => {
     <button
       onClick={handleMenuToggle}
       className="text-white hover:text-gray-300 focus:outline-none"
+      aria-label="Toggle menu"
     >
       {isOpen ? (
         <svg

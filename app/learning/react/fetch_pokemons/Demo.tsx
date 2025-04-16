@@ -47,64 +47,6 @@ const Demo = () => {
    * Fetches a batch of Pokémon and their details.
    * Uses async/await for clarity.
    */
-  const fetchPokemons = async () => {
-    setLoading(true);
-
-    try {
-      // Fetch the batch of Pokémon
-      const response = await fetch(
-        `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${LIMIT}`
-      );
-
-      if (!response.ok) {
-        throw new Error(`Fail fetching with status: ${response.status}`);
-      }
-
-      // Parse JSON for the list of results
-      const data = (await response.json()) as {
-        count: number;
-        results: PokemonAPIListItem[];
-      };
-
-      setPokemonCount(data.count);
-
-      // Fetch  details for each Pokémon
-      const promises = data.results.map(async (pokemon) => {
-        const pokemonDetailsResponse = await fetch(pokemon.url);
-        if (!pokemonDetailsResponse.ok) {
-          throw new Error(
-            `Failed with status: ${pokemonDetailsResponse.status}`
-          );
-        }
-        const pokemonDetailsData = await pokemonDetailsResponse.json();
-
-        return {
-          ...pokemon,
-          base_experience: pokemonDetailsData.base_experience,
-          abilities: pokemonDetailsData.abilities.map(
-            (abilityItem: PokemonAbility) => abilityItem.ability.name
-          ),
-          height: pokemonDetailsData.height,
-          // Use sprites.other["official-artwork"].front_default for high quality,
-          image: pokemonDetailsData.sprites.front_default,
-          weight: pokemonDetailsData.weight,
-        };
-      });
-
-      // Wait for all details to load
-      const expandedSpeciesList = await Promise.all(promises);
-
-      //Log the raw list
-      console.log("expandedSpeciesList -> ", expandedSpeciesList);
-
-      // Update state
-      setPokemonList(expandedSpeciesList);
-    } catch (error) {
-      throw new Error(`Something went wrong with fetching: ${error}`);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handlePrevious = () => {
     if (offset === 0) return;
@@ -119,6 +61,66 @@ const Demo = () => {
   };
 
   useEffect(() => {
+    const fetchPokemons = async () => {
+      setLoading(true);
+
+      try {
+        // Fetch the batch of Pokémon
+        const response = await fetch(
+          `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${LIMIT}`
+        );
+
+        if (!response.ok) {
+          throw new Error(`Fail fetching with status: ${response.status}`);
+        }
+
+        // Parse JSON for the list of results
+        const data = (await response.json()) as {
+          count: number;
+          results: PokemonAPIListItem[];
+        };
+
+        setPokemonCount(data.count);
+
+        // Fetch  details for each Pokémon
+        const promises = data.results.map(async (pokemon) => {
+          const pokemonDetailsResponse = await fetch(pokemon.url);
+          if (!pokemonDetailsResponse.ok) {
+            throw new Error(
+              `Failed with status: ${pokemonDetailsResponse.status}`
+            );
+          }
+          const pokemonDetailsData = await pokemonDetailsResponse.json();
+
+          return {
+            ...pokemon,
+            base_experience: pokemonDetailsData.base_experience,
+            abilities: pokemonDetailsData.abilities.map(
+              (abilityItem: PokemonAbility) => abilityItem.ability.name
+            ),
+            height: pokemonDetailsData.height,
+            // Use sprites.other["official-artwork"].front_default for high quality,
+            image: pokemonDetailsData.sprites.front_default,
+            weight: pokemonDetailsData.weight,
+          };
+        });
+
+        // Wait for all details to load
+        const expandedSpeciesList = await Promise.all(promises);
+
+        //Log the raw list
+        console.log("expandedSpeciesList -> ", expandedSpeciesList);
+
+        // Update state
+        setPokemonList(expandedSpeciesList);
+      } catch (error) {
+        throw new Error(`Something went wrong with fetching: ${error}`);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    // Call fetch
     fetchPokemons();
   }, [offset]);
 

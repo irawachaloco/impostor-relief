@@ -30,7 +30,7 @@ const JavascriptPage = () => {
       <h2 className="text-[#686868] text-lg font-semibold mb-6">
         {CONTENT_TEXT_1}
       </h2>
-      <LinksGrid links={links} />
+      <LinksGrid chapters={links} />
     </div>
   );
 };
