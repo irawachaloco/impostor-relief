@@ -28,24 +28,24 @@ const SVGTextMask: React.FC<SVGTextMaskProps> = ({
         <text
           x="50%"
           y="40%"
-          font-size={fontSize}
+          fontSize={fontSize}
           fill="black"
-          font-family="Arial, sans-serif"
-          font-weight="700"
-          text-anchor="middle"
-          dominant-baseline="middle"
+          fontFamily="Arial, sans-serif"
+          fontWeight="700"
+          textAnchor="middle"
+          dominantBaseline="middle"
         >
           {text1}
         </text>
         <text
           x="50%"
           y="60%"
-          font-size={fontSize}
+          fontSize={fontSize}
           fill="black"
-          font-family="Arial, sans-serif"
-          font-weight="700"
-          text-anchor="middle"
-          dominant-baseline="middle"
+          fontFamily="Arial, sans-serif"
+          fontWeight="700"
+          textAnchor="middle"
+          dominantBaseline="middle"
         >
           {text2}
         </text>

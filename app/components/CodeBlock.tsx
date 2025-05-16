@@ -35,6 +35,7 @@ const CodeBlock: FC<CodeBlockProps> = ({ language, code }) => {
           style={pojoaque}
           wrapLines={true}
           wrapLongLines
+          aria-label={`Code snippet in ${language}`}
           // showLineNumbers
           // showInlineLineNumbers
         >

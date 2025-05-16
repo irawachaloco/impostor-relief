@@ -8,18 +8,15 @@ const CONTENT_TEXT_1 = `This sections will contain Javacsript common patterns an
 const JavascriptPage = () => {
   const links = [
     {
-      id: 1,
       text: "Decorated functions",
       url: "./javascript/decorated_functions",
     },
     {
-      id: 2,
       text: "Debounce and Throttle",
       url: "./javascript/debounce_and_throttle",
     },
     {
-      id: 3,
-      text: "Promise all",
+      text: "Cadavre Exquis - Promise all",
       url: "./javascript/promise_all",
     },
   ];

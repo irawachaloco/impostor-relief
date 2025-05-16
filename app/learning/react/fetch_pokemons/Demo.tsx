@@ -1,8 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import DemoSection from "@/app/components/DemoSection";
-import { useEffect, useState } from "react";
+import FlipCardGrid from "@/app/components/FlipCardGrid";
+import PaginationControls from "@/app/components/PaginationControls";
+import React, { useEffect, useState } from "react";
 const LIMIT = 12;
 
 interface PokemonAPIListItem {
@@ -16,7 +17,7 @@ interface PokemonAbility {
   };
 }
 
-type PokemonType = {
+type Pokemon = {
   name: string;
   url: string;
   image: string;
@@ -26,21 +27,21 @@ type PokemonType = {
 };
 
 const Demo = () => {
-  const [pokemonList, setPokemonList] = useState<PokemonType[]>([]);
+  const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
   const [loading, setLoading] = useState(false);
   const [offset, setOffset] = useState(0);
   const [pokemonCount, setPokemonCount] = useState(0);
 
   /** Controls which Pokémon detail cards are flipped (visible) */
-  const [visibleDetails, setVisibleDetails] = useState<{
-    [key: number]: boolean;
-  }>({});
+  const [visibleDetails, setVisibleDetails] = useState<Record<string, boolean>>(
+    {}
+  );
 
   /**
    * Toggles the detail card (flip) for a given index
    */
-  const toggleVisibleDetails = (index: number) => {
-    setVisibleDetails((prev) => ({ ...prev, [index]: !prev[index] }));
+  const toggleVisibleDetails = (name: string) => {
+    setVisibleDetails((prev) => ({ ...prev, [name]: !prev[name] }));
   };
 
   /**
@@ -135,75 +136,23 @@ const Demo = () => {
 
       {/* Pokémon List */}
       {!loading && (
-        <ul className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {pokemonList.map((pokemon, index) => {
-            const showDetails = visibleDetails[index];
-            return (
-              <li
-                key={index}
-                onClick={() => toggleVisibleDetails(index)}
-                className={`relative [perspective:1000px]`}
-              >
-                <div
-                  className={`relative border border-gray-200 rounded-lg p-4 bg-white  flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow  [transform-style:preserve-3d] transition-transform duration-700 ease-in-out transform  ${
-                    showDetails ? "[transform:rotateY(180deg)]" : ""
-                  }`}
-                >
-                  {/* Front side */}
-                  <div
-                    className={`absolute_ w-full h-full flex flex-col items-center justify-center [backface-visibility:hidden]`}
-                  >
-                    <p className="font-semibold text-gray-700 capitalize pt-2 pb-4">
-                      {pokemon.name}
-                    </p>
-                    <img src={pokemon.image} alt="pokemon image" />
-                  </div>
-
-                  {/* Back side */}
-                  <div
-                    className={`absolute p-6 top-0 w-full h-full flex flex-col text-left justify-center  [transform:rotateY(180deg)] [backface-visibility:hidden] bg-[#ff69b4]/30 border rounded-lg shadow-[inset_10px_10px_0_rgba(250,250,250,1),_inset_-10px_-10px_0_rgba(250,250,250,1),_inset_10px_-10px_0_rgba(250,250,250,1),_inset_-10px_10px_0_rgba(250,250,250,1)]`}
-                  >
-                    <p className="font-bold pb-2 text-center">Details</p>
-                    <p>
-                      <span className="font-semibold">Abilities: </span>
-                      {`${pokemon.abilities.join(", ")}.`}
-                    </p>
-                    <p>
-                      <span className="font-semibold">Height: </span>
-                      {pokemon.height}
-                    </p>
-                    <p>
-                      <span className="font-semibold">Weight: : </span>
-                      {pokemon.weight}
-                    </p>
-                  </div>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+        <>
+          <FlipCardGrid
+            list={pokemonList}
+            visibleDetails={visibleDetails}
+            toggleVisibleDetails={toggleVisibleDetails}
+          />
+          <PaginationControls
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onNext={handleNext}
+            onPrevious={handlePrevious}
+            isPreviousDisabled={offset === 0}
+            isNextDisabled={offset + LIMIT >= pokemonCount}
+            // offset={offset}
+          />
+        </>
       )}
-
-      <div className="flex justify-between mt-4 items-center">
-        <div>
-          Page: {currentPage} of {totalPages}
-        </div>
-        <div>
-          <button
-            className="bg-[#ff69b4] text-white px-4 py-2 rounded"
-            onClick={handlePrevious}
-            disabled={offset === 0}
-          >
-            Previous
-          </button>
-          <button
-            className="bg-[#ff69b4] text-white px-4 py-2 rounded ml-4"
-            onClick={handleNext}
-          >
-            Next
-          </button>
-        </div>
-      </div>
     </DemoSection>
   );
 };

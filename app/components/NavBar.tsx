@@ -38,12 +38,17 @@ const NavItem = ({ link, text }: NavItemProps) => {
   );
 
   const [color, setColor] = useState("white");
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
-    if (isActive) {
+    setHasMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (hasMounted && isActive) {
       setColor(getRandomColor());
     }
-  }, [getRandomColor, isActive]);
+  }, [getRandomColor, isActive, hasMounted]);
 
   const handleMouseEnter = () => {
     setColor(getRandomColor());
@@ -52,6 +57,10 @@ const NavItem = ({ link, text }: NavItemProps) => {
   const handleMouseLeave = () => {
     setColor("white");
   };
+
+  if (!hasMounted) {
+    return null;
+  }
 
   return (
     <Link

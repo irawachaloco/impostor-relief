@@ -364,11 +364,9 @@ const Demo = () => {
           aria-label="Select strategy"
         >
           {Object.values(Strategy).map((strat) => (
-            <>
-              <option key={strat} value={strat}>
-                {strat}
-              </option>
-            </>
+            <option key={strat} value={strat}>
+              {strat}
+            </option>
           ))}
         </select>
 
