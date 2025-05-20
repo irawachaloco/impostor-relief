@@ -84,5 +84,3 @@ export function usePokemonList(offset: number) {
     count,
   };
 }
-
-// export default usePokemonList;
