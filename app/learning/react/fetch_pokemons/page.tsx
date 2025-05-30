@@ -3,7 +3,7 @@ import Demo from "./Demo";
 
 const HEADING_TEXT = `Fetch and Display Pokémon`;
 const DESCRIPTION =
-  `Dedicated to all the Pokemon lovers. This section demonstrates how to fetch, display, and interact with data from an external API—in this case, the PokeAPI. Users can flip through a paginated grid of Pokémon cards, each revealing key information such as abilities, height, and weight with a 3D card flip animation. It's a hands-on example of using React hooks, asynchronous operations, and UI transitions to build an engaging, data-driven component.`.trim();
+  `Dedicated to all the Pokémon lovers. This section demonstrates how to fetch, display, and interact with data from an external API—in this case, the PokeAPI. Users can flip through a paginated grid of Pokémon cards, each revealing key information such as abilities, height, and weight with a 3D card flip animation. It's a hands-on example of using React hooks, asynchronous operations, and UI transitions to build an engaging, data-driven component.`.trim();
 
 const EXPLANATION =
   `To accomplish this, I created a custom hook to handle the data-fetching logic. The PokéAPI is structured in such a way that the initial request returns only a paginated list of Pokémon, each containing just a name and a URL to its detailed data.
