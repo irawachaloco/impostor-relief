@@ -65,7 +65,7 @@ const NavItem = ({ link, text }: NavItemProps) => {
   return (
     <Link
       href={link}
-      className={`flex justify-center w-full md:w-auto border-b md:border-b-0 border-[#f2f2f2] py-2 md:py-0`}
+      className={`flex justify-center w-full md:w-auto border-b md:border-b-0 border-[#f2f2f2] py-2 md:py-0 text-shadow-lg`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{
