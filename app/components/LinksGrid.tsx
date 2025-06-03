@@ -17,6 +17,7 @@ export const LinksGrid: React.FC<SectionProps> = ({ chapters }) => {
           <li key={index}>
             <Link
               href={url}
+              prefetch={false}
               className="bg-[#efefef] hover:scale-[101%] hover:bg-[#e7e7e7] hover:shadow border rounded-xl border-[#718394]/20 hover:border-[#718394]/40 block transition flex justify-center text-center text-[rgba(255,105,180,0.75)]"
             >
               <p

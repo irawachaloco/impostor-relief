@@ -4,28 +4,13 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import AnimatedBackground from "./AnimatedBackground";
 import BurgerButton from "./BurgerButton";
-import { usePathname } from "next/navigation";
+import useActivePath from "../hooks/useActivePath";
 
-type NavItemProps = {
-  link: string;
-  text: string;
-};
+const NavItem = ({ link, text }: { link: string; text: string }) => {
+  // const [isActive, setIsActive] = useState(false);
+  const [color, setColor] = useState("white");
 
-const Menu = ({ isOpen }: { isOpen: boolean }) => (
-  <div
-    id="main-menu"
-    className={`${
-      isOpen ? "flex" : "hidden"
-    } absolute top-[100%] md:top-auto md:relative md:flex flex-col md:flex-row right-0 items-center md:items-auto w-full md:w-auto bg-[#e8e8e8] md:bg-[#e8e8e8]/0 md:space-x-4`}
-  >
-    <NavItem link="/learning" text="Learning" />
-    <NavItem link="/gallery" text="Gallery" />
-  </div>
-);
-
-const NavItem = ({ link, text }: NavItemProps) => {
-  const path = usePathname();
-  const isActive = path.startsWith(link);
+  const isActive = useActivePath(link);
 
   const colors = React.useMemo(
     () => ["#ff2d00", "#ffd700", "#007fff", "#ff69b4", "#9932cc"],
@@ -37,39 +22,32 @@ const NavItem = ({ link, text }: NavItemProps) => {
     [colors]
   );
 
-  const [color, setColor] = useState("white");
-  const [hasMounted, setHasMounted] = useState(false);
-
   useEffect(() => {
-    setHasMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (hasMounted && isActive) {
+    if (isActive) {
       setColor(getRandomColor());
+    } else {
+      setColor("white");
     }
-  }, [getRandomColor, isActive, hasMounted]);
+  }, [isActive, getRandomColor]);
 
   const handleMouseEnter = () => {
     setColor(getRandomColor());
   };
 
   const handleMouseLeave = () => {
-    setColor("white");
+    if (!isActive) {
+      setColor("white");
+    }
   };
-
-  if (!hasMounted) {
-    return null;
-  }
 
   return (
     <Link
       href={link}
-      className={`flex justify-center w-full md:w-auto border-b md:border-b-0 border-[#f2f2f2] py-2 md:py-0 text-shadow-lg`}
+      className={`flex justify-center w-full md:w-auto border-b md:border-b-0 border-[#f2f2f2] py-2 md:py-0 text-shadow-[0_4px_28px_#7d7d7d]`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{
-        color: isActive ? getRandomColor() : color,
+        color,
         opacity: isActive ? 0.75 : 1,
       }}
     >
@@ -91,7 +69,8 @@ const NavBar = () => {
       role="navigation"
       aria-label="Main navigation"
     >
-      <AnimatedBackground fill_color={"bg-[#e8e8e8]/90"} />
+      <AnimatedBackground />
+      {/* <AnimatedBackground fill_color={"bg-[#e8e8e8]/90"} /> */}
       <div className="flex items-end justify-between w-full">
         <div className="flex h-[1.75em] md:h-[2.25em] flex-auto overflow-hidden">
           <Link href="/" aria-label="Home" className="hover:scale-[101%]">
@@ -101,11 +80,19 @@ const NavBar = () => {
             </span>
           </Link>
         </div>
-        <div className="flex items-center space-x-4 md:hidden">
+        <div className="flex items-center gap-4 md:hidden">
           {/* Burger button */}
           <BurgerButton handleMenuToggle={handleMenuToggle} isOpen={isOpen} />
         </div>
-        <Menu isOpen={isOpen} />
+        <div
+          id="main-menu"
+          className={`${
+            isOpen ? "flex" : "hidden"
+          } absolute top-[100%] md:top-auto md:relative md:flex flex-col md:flex-row right-0 items-center md:items-auto w-full md:w-auto bg-[#e8e8e8] md:bg-[#e8e8e8]/0 md:gap-4 p-4`}
+        >
+          <NavItem link="/learning" text="Learning" />
+          <NavItem link="/gallery" text="Gallery" />
+        </div>
       </div>
     </nav>
   );
