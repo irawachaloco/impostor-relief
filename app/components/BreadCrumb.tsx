@@ -1,23 +1,30 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useSelectedLayoutSegments } from "next/navigation";
+import { useEffect, useState } from "react";
 
 // Capitalize and replace underscores
 const toTitleCase = (s: string) =>
   s.replace(/_/g, " ").replace(/^\w/, (c) => c.toUpperCase());
 
 const BreadCrumb = () => {
-  const segments = useSelectedLayoutSegments();
-  const pathName = usePathname();
+  const [segments, setSegments] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const pathSegments = window.location.pathname
+        .split("/")
+        .filter((segment) => segment);
+      setSegments(pathSegments);
+    }
+  }, []);
 
   return (
     <nav aria-label="Breadcrumb" className="pb-6">
-      <ul className="flex space-x-3">
+      <ul className="flex gap-3">
         {segments.map((segment, index) => {
           const segment_href = `/${segments.slice(0, index + 1).join("/")}`; // Creates the URL
           const isNotLast = index + 1 < segments.length;
-          const isCurrent = segment_href === pathName;
 
           return (
             <li
@@ -31,7 +38,7 @@ const BreadCrumb = () => {
               <Link href={segment_href}>
                 <span
                   className={`text-gray-400 text-sm ${
-                    isCurrent ? "underline" : ""
+                    isNotLast ? "" : "underline"
                   }`}
                 >
                   {toTitleCase(segment)}
