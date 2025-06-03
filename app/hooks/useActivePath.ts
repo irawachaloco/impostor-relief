@@ -5,7 +5,8 @@ export default function useActivePath(link: string): boolean {
 
   useEffect(() => {
     const check = () => {
-      setIsActive(window.location.pathname.startsWith(link));
+      const path = window.location.pathname.replace("/impostor-relief", "");
+      setIsActive(path.startsWith(link));
     };
 
     check();
