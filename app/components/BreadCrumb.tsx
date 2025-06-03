@@ -3,39 +3,48 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-// Capitalize and replace underscores
 const toTitleCase = (s: string) =>
   s.replace(/_/g, " ").replace(/^\w/, (c) => c.toUpperCase());
 
 const BreadCrumb = () => {
   const [segments, setSegments] = useState<string[]>([]);
+  const [lastPath, setLastPath] = useState("");
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const pathSegments = window.location.pathname
-        .split("/")
-        .filter((segment) => segment);
-      setSegments(pathSegments);
-    }
-  }, []);
+    const updateSegments = () => {
+      const pathname = window.location.pathname.replace("/impostor-relief", "");
+      if (pathname !== lastPath) {
+        setSegments(pathname.split("/").filter(Boolean));
+        setLastPath(pathname);
+      }
+    };
+
+    updateSegments(); // on mount
+
+    const interval = setInterval(updateSegments, 300); // check every 300ms
+
+    return () => clearInterval(interval);
+  }, [lastPath]);
+
+  if (!segments.length) return null;
 
   return (
     <nav aria-label="Breadcrumb" className="pb-6">
       <ul className="flex gap-3">
         {segments.map((segment, index) => {
-          const segment_href = `/${segments.slice(0, index + 1).join("/")}`; // Creates the URL
+          const segmentHref = `/${segments.slice(0, index + 1).join("/")}`;
           const isNotLast = index + 1 < segments.length;
 
           return (
             <li
+              key={index}
               className={
                 isNotLast
                   ? "after:border-r-2 after:border-gray-300 after:ml-3"
                   : ""
               }
-              key={index}
             >
-              <Link href={segment_href}>
+              <Link href={segmentHref} prefetch={false}>
                 <span
                   className={`text-gray-400 text-sm ${
                     isNotLast ? "" : "underline"
