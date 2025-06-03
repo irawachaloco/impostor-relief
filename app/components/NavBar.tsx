@@ -43,6 +43,7 @@ const NavItem = ({ link, text }: { link: string; text: string }) => {
   return (
     <Link
       href={link}
+      prefetch={false}
       className={`flex justify-center w-full md:w-auto border-b md:border-b-0 border-[#f2f2f2] py-2 md:py-0 text-shadow-[0_4px_28px_#7d7d7d]`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -73,7 +74,12 @@ const NavBar = () => {
       {/* <AnimatedBackground fill_color={"bg-[#e8e8e8]/90"} /> */}
       <div className="flex items-end justify-between w-full">
         <div className="flex h-[1.75em] md:h-[2.25em] flex-auto overflow-hidden">
-          <Link href="/" aria-label="Home" className="hover:scale-[101%]">
+          <Link
+            href="/"
+            prefetch={false}
+            aria-label="Home"
+            className="hover:scale-[101%]"
+          >
             <span className="sr-only">Impostor Relief Home</span>
             <span className="text-gray-500/50 animated-text font-bold text-[2em] md:text-[2.5em] max-width">
               Impostor Relief
