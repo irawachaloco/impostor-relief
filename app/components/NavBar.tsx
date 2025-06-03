@@ -65,44 +65,42 @@ const NavBar = () => {
   };
 
   return (
-    <div className="overflow-hidden">
-      <nav
-        className="px-8 sm:px-20 flex items-end h-[4em] min-w-full relative"
-        role="navigation"
-        aria-label="Main navigation"
-      >
-        <AnimatedBackground />
-        {/* <AnimatedBackground fill_color={"bg-[#e8e8e8]/90"} /> */}
-        <div className="flex items-end justify-between w-full">
-          <div className="flex h-[1.75em] md:h-[2.25em] flex-auto">
-            <Link
-              href="/"
-              prefetch={false}
-              aria-label="Home"
-              className="hover:scale-[101%]"
-            >
-              <span className="sr-only">Impostor Relief Home</span>
-              <span className="text-gray-500/50 animated-text font-bold text-[2em] md:text-[2.5em] max-width">
-                Impostor Relief
-              </span>
-            </Link>
-          </div>
-          <div className="flex items-center gap-4 md:hidden">
-            {/* Burger button */}
-            <BurgerButton handleMenuToggle={handleMenuToggle} isOpen={isOpen} />
-          </div>
-          <div
-            id="main-menu"
-            className={`${
-              isOpen ? "flex" : "hidden"
-            } absolute top-[100%] md:top-auto md:relative md:flex flex-col md:flex-row right-0 items-center md:items-auto w-full md:w-auto bg-[#e8e8e8] md:bg-[#e8e8e8]/0 md:gap-4`}
+    <nav
+      className="px-8 sm:px-20 flex items-end h-[4em] min-w-full relative overflow-hidden"
+      role="navigation"
+      aria-label="Main navigation"
+    >
+      <AnimatedBackground />
+      {/* <AnimatedBackground fill_color={"bg-[#e8e8e8]/90"} /> */}
+      <div className="flex items-end justify-between w-full">
+        <div className="flex h-[1.75em] md:h-[2.25em] flex-auto">
+          <Link
+            href="/"
+            prefetch={false}
+            aria-label="Home"
+            className="hover:scale-[101%]"
           >
-            <NavItem link="/learning" text="Learning" />
-            <NavItem link="/gallery" text="Gallery" />
-          </div>
+            <span className="sr-only">Impostor Relief Home</span>
+            <span className="text-gray-500/50 animated-text font-bold text-[2em] md:text-[2.5em] max-width">
+              Impostor Relief
+            </span>
+          </Link>
         </div>
-      </nav>
-    </div>
+        <div className="flex items-center gap-4 md:hidden">
+          {/* Burger button */}
+          <BurgerButton handleMenuToggle={handleMenuToggle} isOpen={isOpen} />
+        </div>
+        <div
+          id="main-menu"
+          className={`${
+            isOpen ? "flex" : "hidden"
+          } absolute top-[100%] md:top-auto md:relative md:flex flex-col md:flex-row right-0 items-center md:items-auto w-full md:w-auto bg-[#e8e8e8] md:bg-[#e8e8e8]/0 md:gap-4`}
+        >
+          <NavItem link="/learning" text="Learning" />
+          <NavItem link="/gallery" text="Gallery" />
+        </div>
+      </div>
+    </nav>
   );
 };
 
