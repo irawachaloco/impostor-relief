@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 // import localFont from "next/font/local";
-import "./globals.scss";
+import "./globals.css"; //will change
+// import "./globals.scss"; //will change
 import NavBar from "./components/NavBar";
 import BreadCrumb from "./components/BreadCrumb";
 
@@ -30,7 +31,7 @@ export default function RootLayout({
       <body
       // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="h-screen w-screen grid grid-rows-[auto,1fr] max-w-full">
+        <div className="h-screen w-screen grid-rows-[auto_1fr] max-w-full">
           <NavBar />
           <div className="max-w-[100vw] pb-20 gap-16 px-8 sm:px-20 sm:pt-4 sm:pb-20 font-[family-name:var(--font-geist-sans)]">
             <BreadCrumb />

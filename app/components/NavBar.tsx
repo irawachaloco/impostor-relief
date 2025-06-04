@@ -66,7 +66,7 @@ const NavBar = () => {
 
   return (
     <nav
-      className="px-8 sm:px-20 flex items-end h-[4em] min-w-full relative overflow-hidden"
+      className="px-8 sm:px-20 flex items-end h-[4em] min-w-full relative md:overflow-hidden"
       role="navigation"
       aria-label="Main navigation"
     >
@@ -78,7 +78,7 @@ const NavBar = () => {
             href="/"
             prefetch={false}
             aria-label="Home"
-            className="hover:scale-[101%]"
+            className="hover:scale-[101%] overflow-hidden"
           >
             <span className="sr-only">Impostor Relief Home</span>
             <span className="text-gray-500/50 animated-text font-bold text-[2em] md:text-[2.5em] max-width">

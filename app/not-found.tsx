@@ -12,7 +12,7 @@ export default function NorFounf() {
             fontSize={80}
             description="SVG mask displaying an error message"
           />
-          <AnimatedBackground fill_color={"bg-[#e8e8e8]/90"} />
+          <AnimatedBackground />
         </div>
       </section>
     </div>

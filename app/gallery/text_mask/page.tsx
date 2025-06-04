@@ -51,24 +51,19 @@ const TextMaskChapter = () => {
       <h1 className="text-[#686868] text-lg font-semibold mb-6">
         {DESCRIPTION_TEXT}
       </h1>
-      <section className="rounded border border-gray-200 mb-6 max-w-6xl">
+      <section className="rounded-sm border border-gray-200 mb-6 max-w-6xl">
         <div className="relative">
           <SVGTextMask
-            // text1="404"
-            // text2="NOT FOUND"
             text1="TEXT"
             text2="MASKING"
             fontSize={80}
             description="SVG mask displaying an error message"
           />
-          <AnimatedBackground fill_color={"bg-[#e8e8e8]/90"} />
+          <AnimatedBackground />
         </div>
       </section>
       <div className="max-w-2xl">
         <p>{CONTENT_TEXT_1}</p>
-        {/* <h1 className="text-[#686868] text-lg font-semibold mt-6 mb-4">
-            {DEBOUNCE_HEADER}
-          </h1> */}
         <p>{CONTENT_TEXT_2}</p>
         <CodeBlock language="xml" code={SVG_TEXT_MASK_CODE} />
       </div>
