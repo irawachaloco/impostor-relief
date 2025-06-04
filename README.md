@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Impostor Relief
 
-## Getting Started
+A playful and interactive frontend project built with **Next.js**, **React**, and **TypeScript**. This site explores developer concepts through demos, learning chapters, and a visual layout designed to support creative coding and education.
 
-First, run the development server:
+![Demo Preview](./public/demo-preview.png) <!-- Optional: replace with actual screenshot path -->
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+
+- 🔗 **Links Grid**: Dynamic sections and chapters using reusable `LinksGrid` and `SectionsGrid` components.
+- 🎨 **Animated Navigation**: Responsive navbar with random animated text colors and a mobile burger menu.
+- 🧩 **Breadcrumbs**: Path-aware breadcrumbs using `next/navigation`.
+- 🔄 **Interactive Demo**: Flip card interface powered by PokeAPI showing Pokémon data with pagination.
+- 🧪 **Tests**: Unit tests using React Testing Library for `LinksGrid` component.
+
+## 📁 Project Structure
+
+```
+app/
+├── components/
+│   ├── BreadCrumb.tsx
+│   ├── BurgerButton.tsx
+│   ├── DemoSection.tsx
+│   ├── LinksGrid.tsx
+│   ├── NavBar.tsx
+│   ├── Section.tsx
+│   └── SectionsGrid.tsx
+├── demo/
+│   └── Demo.tsx
+├── styles/
+│   └── globals.scss
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repo**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   git clone https://github.com/irawachaloco/impostor-relief.git
+   cd impostor-relief
+   ```
 
-## Learn More
+2. **Install dependencies**
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Run the dev server**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   npm run dev
+   ```
 
-## Deploy on Vercel
+4. **Run tests**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm run test
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5. **Build for production**
+   ```bash
+   npm run build
+   ```
+
+## 📚 Tech Stack
+
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [PokéAPI](https://pokeapi.co/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
+
+## 🔍 Components Overview
+
+- **NavBar**: Includes `BurgerButton`, animated colors on hover, and dynamic active state detection.
+- **LinksGrid**: Renders a responsive list of chapters.
+- **SectionsGrid**: Organizes grouped chapters under optional titles.
+- **DemoSection + Demo.tsx**: Interactive Pokémon fetch with card flipping animations.
+- **BreadCrumb**: Path-based breadcrumb navigation.
+
+## 🧪 Tests
+
+Tests are located in `LinksGrid.test.tsx`. To run:
+
+```bash
+npm run test
+```
+
+## 📜 License
+
+MIT © [irawachaloco](https://github.com/irawachaloco)
