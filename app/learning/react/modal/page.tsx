@@ -19,7 +19,7 @@ const Modal: React.FC<ModalProps> = ({ hidden = true, handleClose }) => {
       <div className="modal-content bg-white w-96 mx-auto p-6 rounded-lg relative">
         {/* ...modal content */}
         <button
-          className="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          className="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-sm"
           onClick={handleClose}
         >
           Close
@@ -41,7 +41,7 @@ const handleOnClick = (e: React.FormEvent<HTMLFormElement>) => {
 
 return (
     <>
-      <button className="mr-2 rounded border border-1 border-blue-400 bg-blue-200 hover:bg-blue-100 p-2" onClick={handleOnClick}>
+      <button className="mr-2 rounded-sm border border-1 border-blue-400 bg-blue-200 hover:bg-blue-100 p-2" onClick={handleOnClick}>
         Open Modal
       </button>
       <Modal hidden={!isOpen} handleClose={() => setIsOpen(!isOpen)} />

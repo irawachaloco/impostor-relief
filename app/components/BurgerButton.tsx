@@ -9,7 +9,7 @@ const BurgerButton = ({ handleMenuToggle, isOpen }: BurgerButtonProps) => {
   return (
     <button
       onClick={handleMenuToggle}
-      className="text-white hover:text-gray-300 focus:outline-none"
+      className="text-white hover:text-gray-300 focus:outline-hidden"
       aria-label="Toggle menu"
     >
       {isOpen ? (

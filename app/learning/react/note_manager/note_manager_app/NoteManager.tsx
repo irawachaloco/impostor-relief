@@ -25,7 +25,7 @@ const NoteForm: React.FC<NoteFormProps> = ({
       <label htmlFor="note_input">{LABEL_TEXT}</label>
       <input
         id="note_input"
-        className="border-[1px] border-gray-300 p-2 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="border-[1px] border-gray-300 p-2 rounded-md w-full focus:outline-hidden focus:ring-2 focus:ring-blue-500"
         type="text"
         value={inputValue}
         placeholder="Type a note here"

@@ -23,7 +23,7 @@ const ControlledInput: React.FC<ControlledInputProps> = ({
     <input
       id={id}
       name={name}
-      className="border-[1px] border-gray-300 p-2 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+      className="border-[1px] border-gray-300 p-2 rounded-md w-full focus:outline-hidden focus:ring-2 focus:ring-blue-500"
       ref={inputRef}
       type={type}
       onChange={handleOnChange}

@@ -16,7 +16,7 @@ const Demo: React.FC = () => {
     <div>
       <DemoSection>
         <form onSubmit={handleOnClick}>
-          <button className="mr-2 rounded border border-1 border-blue-400 bg-blue-200 hover:bg-blue-100 p-2">
+          <button className="mr-2 rounded-sm border border-1 border-blue-400 bg-blue-200 hover:bg-blue-100 p-2">
             Open Modal
           </button>
         </form>

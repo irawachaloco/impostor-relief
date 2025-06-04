@@ -35,7 +35,7 @@ const Demo_2 = () => {
         <p className="pb-4">{`This input is throttled, it will store and print the value each second even if you keeps clicking. Try clicking rapidly to see the throttling effect`}</p>
         <form onSubmit={handleOnClick}>
           <p className="block mb-2 text-gray-700">Input:</p>
-          <button className="rounded bg-blue-500 text-white p-2 mb-4 active:bg-blue-700 active:shadow-lg ">
+          <button className="rounded-sm bg-blue-500 text-white p-2 mb-4 active:bg-blue-700 active:shadow-lg ">
             Submit
           </button>
         </form>

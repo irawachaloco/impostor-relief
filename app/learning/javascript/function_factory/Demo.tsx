@@ -22,11 +22,11 @@ const Demo = () => {
       <form className="flex flex-row space-x-4">
         <input
           type="number"
-          className="border-[1px] border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="border-[1px] border-gray-300 p-2 rounded-md focus:outline-hidden focus:ring-2 focus:ring-blue-500"
         />
         <button
           type="submit"
-          className="rounded bg-blue-500 text-white p-2 mb-4 active:bg-blue-700 active:shadow-lg"
+          className="rounded-sm bg-blue-500 text-white p-2 mb-4 active:bg-blue-700 active:shadow-lg"
         >
           Submit
         </button>

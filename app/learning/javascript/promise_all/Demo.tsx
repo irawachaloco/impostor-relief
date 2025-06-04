@@ -358,7 +358,7 @@ const Demo = () => {
 
       <div className="flex flex-col md:flex-row md:items-center md:space-x-4 md:space-y-0 space-y-4">
         <select
-          className="rounded border border-gray-300 p-2"
+          className="rounded-sm border border-gray-300 p-2"
           value={strategy}
           onChange={(e) => setStrategy(e.target.value as Strategy)}
           aria-label="Select strategy"
@@ -371,7 +371,7 @@ const Demo = () => {
         </select>
 
         <button
-          className="rounded bg-blue-500 text-white p-2 active:bg-blue-700 active:shadow-lg "
+          className="rounded-sm bg-blue-500 text-white p-2 active:bg-blue-700 active:shadow-lg "
           onClick={generateCadavreExquis}
           disabled={loading}
         >

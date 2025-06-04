@@ -25,14 +25,14 @@ const PaginationControls: React.FC<PaginationControlsProps> = ({
       </div>
       <div>
         <button
-          className="bg-[#ff69b4] text-white px-4 py-2 rounded disabled:opacity-50"
+          className="bg-[#ff69b4] text-white px-4 py-2 rounded-sm disabled:opacity-50"
           onClick={onPrevious}
           disabled={isPreviousDisabled}
         >
           Previous
         </button>
         <button
-          className="bg-[#ff69b4] text-white px-4 py-2 rounded disabled:opacity-50 ml-4"
+          className="bg-[#ff69b4] text-white px-4 py-2 rounded-sm disabled:opacity-50 ml-4"
           onClick={onNext}
           disabled={isNextDisabled}
         >

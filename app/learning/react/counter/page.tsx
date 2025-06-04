@@ -44,13 +44,13 @@ function CounterApp () {
       <Section>
         <p>Count: {count}</p>
         <button
-          className="mr-2 rounded border border-1 border-blue-400 bg-blue-200 hover:bg-blue-100 p-2"
+          className="mr-2 rounded-sm border border-1 border-blue-400 bg-blue-200 hover:bg-blue-100 p-2"
           onClick={handleIncrement}
         >
           Increment
         </button>
         <button
-          className="mr-2  rounded border border-1 border-blue-400 bg-blue-200 hover:bg-blue-100 p-2"
+          className="mr-2  rounded-sm border border-1 border-blue-400 bg-blue-200 hover:bg-blue-100 p-2"
           onClick={handleDecrement}
         >
           Decrement

@@ -28,14 +28,14 @@ const TodoItem: React.FC<TodoItemProps> = ({
       <button
         type="button"
         onClick={() => handleEdit(todo)}
-        className="ml-2 mr-2  rounded border border-1 border-blue-400 bg-blue-200 hover:bg-blue-100 p-2"
+        className="ml-2 mr-2  rounded-sm border border-1 border-blue-400 bg-blue-200 hover:bg-blue-100 p-2"
       >
         Edit
       </button>
       <button
         type="button"
         onClick={() => handleDelete(todo)}
-        className="mr-2  rounded border border-1 border-red-400 bg-red-200 hover:bg-red-100 p-2"
+        className="mr-2  rounded-sm border border-1 border-red-400 bg-red-200 hover:bg-red-100 p-2"
       >
         Delete
       </button>

@@ -85,7 +85,7 @@ const GiffsGridChapter = () => {
             type="text"
             value={inputValue}
           />
-          <button className="bg-blue-400 text-white font-bold p-2 rounded mx-2">
+          <button className="bg-blue-400 text-white font-bold p-2 rounded-sm mx-2">
             Search
           </button>
         </form>
@@ -96,7 +96,7 @@ const GiffsGridChapter = () => {
 
         {/* <button
           onClick={handleSort}
-          className="bg-blue-300 p-2 my-1 rounded text-white font-bold"
+          className="bg-blue-300 p-2 my-1 rounded-sm text-white font-bold"
         >
           Sort the list
         </button> */}
@@ -105,14 +105,14 @@ const GiffsGridChapter = () => {
           <p>Page: {currentPage}</p>
           <button
             onClick={handlePrevious}
-            className="bg-blue-300 p-2 my-1 rounded text-white font-bold mr-2"
+            className="bg-blue-300 p-2 my-1 rounded-sm text-white font-bold mr-2"
             disabled={offset === 0}
           >
             Previos page
           </button>
           <button
             onClick={handleNext}
-            className="bg-blue-300 p-2 my-1 rounded text-white font-bold"
+            className="bg-blue-300 p-2 my-1 rounded-sm text-white font-bold"
           >
             Next page
           </button>
@@ -120,7 +120,10 @@ const GiffsGridChapter = () => {
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-4">
           {giffsList.length &&
             giffsList.map((item) => (
-              <li key={item.id} className="bg-gray-100 p-2 rounded shadow">
+              <li
+                key={item.id}
+                className="bg-gray-100 p-2 rounded-sm shadow-sm"
+              >
                 <img src={item.images.downsized.url} alt={item.title} />
                 <p>{item.title}</p>
               </li>

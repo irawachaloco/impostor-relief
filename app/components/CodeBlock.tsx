@@ -28,7 +28,7 @@ type CodeBlockProps = {
 const CodeBlock: FC<CodeBlockProps> = ({ language, code }) => {
   return (
     <div className="flex_">
-      <div className="shadow-md rounded rounded-lg my-4 overflow-hidden">
+      <div className="shadow-md rounded-lg my-4 overflow-hidden">
         <SyntaxHighlighter
           language={language}
           // style={pojoaque}

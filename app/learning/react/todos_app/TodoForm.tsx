@@ -47,7 +47,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ onSubmit, todoToEdit }) => {
           value={inputValue}
           onChange={handleOnChange}
         />
-        <button className="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <button className="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-sm">
           Submit
         </button>
       </form>

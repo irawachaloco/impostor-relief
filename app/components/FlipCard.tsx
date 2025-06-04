@@ -25,7 +25,7 @@ const FlipCard: React.FC<FlipCardProps> = ({ card, showDetails, onClick }) => {
   return (
     <li onClick={onClick} className={`relative [perspective:1000px]`}>
       <div
-        className={`relative border border-gray-200 rounded-lg p-4 bg-white  flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow  [transform-style:preserve-3d] transition-transform duration-700 ease-in-out transform  ${
+        className={`relative border border-gray-200 rounded-lg p-4 bg-white  flex flex-col items-center text-center shadow-xs hover:shadow-md transition-shadow  [transform-style:preserve-3d] transition-transform duration-700 ease-in-out transform  ${
           showDetails ? "[transform:rotateY(180deg)]" : ""
         }`}
       >

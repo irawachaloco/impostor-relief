@@ -17,7 +17,7 @@ const SelectComponent: FC = () => {
     <section className="border-solid border-2 border-gray-300 rounded-md p-4">
       <p className="pb-2">Select a theme</p>
       <select
-        className="w-full p-2 pr-8 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 max-w-32"
+        className="w-full p-2 pr-8 border border-gray-300 rounded-md focus:outline-hidden focus:ring-2 focus:ring-blue-500 max-w-32"
         onChange={(e) => setTheme(e.target.value)}
         value={theme}
       >

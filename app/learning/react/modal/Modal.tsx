@@ -32,7 +32,7 @@ const ModalForm = () => {
           )} */}
       <button
         type="submit"
-        className="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        className="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-sm"
       >
         Submit
       </button>
@@ -68,7 +68,7 @@ const Modal: React.FC<ModalProps> = ({ hidden = true, handleClose }) => {
         <h2 className="text-2xl font-bold mb-4">Are you an impostor?</h2>
         <ModalForm />
         <button
-          className="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          className="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-sm"
           onClick={handleClose}
         >
           Close

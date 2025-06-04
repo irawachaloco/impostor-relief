@@ -24,18 +24,18 @@ const Timer = () => {
       <div className="pb-4">
         <form onSubmit={handleOnSubmit}>
           <input
-            className="border-[1px] border-grey-400 rounded p-2 mr-2"
+            className="border-[1px] border-grey-400 rounded-sm p-2 mr-2"
             type="number"
             onChange={handleOnChange}
             value={inputValue}
           />
 
-          <button className="mr-2  rounded border border-1 border-blue-400 bg-blue-200 hover:bg-blue-100 p-2">
+          <button className="mr-2  rounded-sm border border-1 border-blue-400 bg-blue-200 hover:bg-blue-100 p-2">
             Start
           </button>
         </form>
       </div>
-      <div className="flex items-center flex-col bg-gray-100 border rounded py-4">
+      <div className="flex items-center flex-col bg-gray-100 border rounded-sm py-4">
         <div className="text-xl pb-2">Count:</div>
         <div className="flex justify-center items-center rounded-[50%] border border-2 border-black bg-white h-[10em] w-[10em] ">
           <div className="font-bold text-6xl">{count}</div>
