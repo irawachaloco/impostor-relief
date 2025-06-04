@@ -21,8 +21,8 @@ const CONTENT_TEXT_7 = `— Omar Ponce Bañuelos`;
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center_">
-      <div className="max-w-xl_ flex flex-col max-w-2xl">
+    <div className="flex flex-col items-center">
+      <div className="max-w-xl_ flex flex-col">
         <h1 className="text-[#686868] text-2xl font-bold mb-8">
           {WELCOME_TEXT}
         </h1>
