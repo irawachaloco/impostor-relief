@@ -1,5 +1,3 @@
-// import React from "react";
-
 type BurgerButtonProps = {
   handleMenuToggle: () => void;
   isOpen: boolean;
@@ -45,11 +43,5 @@ const BurgerButton = ({ handleMenuToggle, isOpen }: BurgerButtonProps) => {
     </button>
   );
 };
-
-// const BurgerButton = () => {
-//   return (
-//     <div>BurgerButton</div>
-//   )
-// }
 
 export default BurgerButton;

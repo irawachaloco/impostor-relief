@@ -1,11 +1,15 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import BreadCrumb from "./BreadCrumb";
-import { usePathname, useSelectedLayoutSegments } from "next/navigation";
 
-jest.mock("next/navigation", () => ({
-  usePathname: jest.fn(),
-  useSelectedLayoutSegments: jest.fn(),
-}));
+const setMockPathname = (mockPath: string) => {
+  Object.defineProperty(window, "location", {
+    configurable: true,
+    value: {
+      ...window.location,
+      pathname: mockPath,
+    },
+  });
+};
 
 describe("BreadCrumb", () => {
   beforeEach(() => {
@@ -13,13 +17,7 @@ describe("BreadCrumb", () => {
   });
 
   it("should renders breadcrumb segments as links", () => {
-    // Mock route: /learning/javascript/arrays
-    (useSelectedLayoutSegments as jest.Mock).mockReturnValue([
-      "learning",
-      "javascript",
-      "arrays",
-    ]);
-    (usePathname as jest.Mock).mockReturnValue("/learning/javascript/arrays");
+    setMockPathname("impostor-relief/learning/javascript/arrays");
 
     render(<BreadCrumb />);
 
@@ -31,22 +29,16 @@ describe("BreadCrumb", () => {
     // Assert that each segment is a link with the correct href
     expect(screen.getByRole("link", { name: "Learning" })).toHaveAttribute(
       "href",
-      "/learning"
+      "/impostor-relief/learning"
     );
     expect(screen.getByRole("link", { name: "Javascript" })).toHaveAttribute(
       "href",
-      "/learning/javascript"
+      "/impostor-relief/learning/javascript"
     );
   });
 
   it("highlights the current page with underline", () => {
-    // Mock route: /learning/javascript/arrays
-    (useSelectedLayoutSegments as jest.Mock).mockReturnValue([
-      "learning",
-      "typescript",
-    ]);
-    (usePathname as jest.Mock).mockReturnValue("/learning/typescript");
-
+    setMockPathname("impostor-relief/learning/typescript");
     render(<BreadCrumb />);
 
     const lastSegment = screen.getByText("Typescript");
@@ -55,14 +47,7 @@ describe("BreadCrumb", () => {
   });
 
   it("responds to click on breadcrumb links", () => {
-    // Mock route: /learning/javascript/arrays
-    (useSelectedLayoutSegments as jest.Mock).mockReturnValue([
-      "learning",
-      "javascript",
-      "arrays",
-    ]);
-    (usePathname as jest.Mock).mockReturnValue("/learning/javascript/arrays");
-
+    setMockPathname("impostor-relief/learning/arrays");
     render(<BreadCrumb />);
 
     const link = screen.getByRole("link", { name: "Learning" });
@@ -73,7 +58,7 @@ describe("BreadCrumb", () => {
     fireEvent.click(link2);
 
     // We can't assert navigation, but we can confirm it behave as a link
-    expect(link).toHaveAttribute("href", "/learning");
-    expect(link2).toHaveAttribute("href", "/learning/javascript/arrays");
+    expect(link).toHaveAttribute("href", "/impostor-relief/learning");
+    expect(link2).toHaveAttribute("href", "/impostor-relief/learning/arrays");
   });
 });
