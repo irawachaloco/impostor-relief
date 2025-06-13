@@ -1,11 +1,11 @@
 "use client";
 
 import DemoSection from "@/app/components/DemoSection";
-import FlipCardGrid from "@/app/components/FlipCardGrid";
 import FlipCardGridSkeleton from "@/app/components/FlipCardGridSkeleton";
 import PaginationControls from "@/app/components/PaginationControls";
 import { usePokemonList } from "@/app/hooks/usePokemonList";
 import React, { useCallback, useState } from "react";
+import PokemonGrid from "./PokemonGrid";
 const LIMIT = 12;
 
 const Demo = () => {
@@ -18,8 +18,8 @@ const Demo = () => {
   );
 
   /** Toggles the detail card (flip) for a given index */
-  const toggleVisibleDetails = useCallback((name: string) => {
-    setVisibleDetails((prev) => ({ ...prev, [name]: !prev[name] }));
+  const toggleVisibleDetails = useCallback((id: string | number) => {
+    setVisibleDetails((prev) => ({ ...prev, [id]: !prev[id] }));
   }, []);
   /** Pagination controls */
   const handlePrevious = () => {
@@ -46,8 +46,8 @@ const Demo = () => {
 
       {/* Pokémon List */}
       {!loading && (
-        <FlipCardGrid
-          list={pokemonList}
+        <PokemonGrid
+          pokemons={pokemonList}
           visibleDetails={visibleDetails}
           toggleVisibleDetails={toggleVisibleDetails}
         />
