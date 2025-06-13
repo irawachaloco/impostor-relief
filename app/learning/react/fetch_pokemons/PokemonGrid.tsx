@@ -11,7 +11,11 @@ type Pokemon = {
   weight: number;
 };
 
-const PokemonFrontCard: React.FC<{ pokemon: Pokemon }> = ({ pokemon }) => {
+const PokemonFrontCard = React.memo(function PokemonFrontCard({
+  pokemon,
+}: {
+  pokemon: Pokemon;
+}) {
   return (
     <div className="flex flex-col items-center">
       <p className="font-semibold text-gray-700 capitalize pt-2 pb-4">
@@ -24,9 +28,15 @@ const PokemonFrontCard: React.FC<{ pokemon: Pokemon }> = ({ pokemon }) => {
       />
     </div>
   );
-};
+});
 
-const PokemonBackCard: React.FC<{ pokemon: Pokemon }> = ({ pokemon }) => {
+PokemonFrontCard.displayName = "PokemonFrontCard";
+
+const PokemonBackCard = React.memo(function PokemonBackCard({
+  pokemon,
+}: {
+  pokemon: Pokemon;
+}) {
   return (
     <div className="p-[18px] text-sm">
       <p className="font-semibold text-gray-700 capitalize pt-2 pb-4">
@@ -46,7 +56,9 @@ const PokemonBackCard: React.FC<{ pokemon: Pokemon }> = ({ pokemon }) => {
       </p>
     </div>
   );
-};
+});
+
+PokemonBackCard.displayName = "PokemonBackCard";
 
 type PokemonGridProps = {
   pokemons: Pokemon[];
